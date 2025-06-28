@@ -36,17 +36,17 @@ function scrollTo(id) {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #2c3e50;
+  background-color: var(--blue);
   backdrop-filter: blur(6px); /* effetto vetro */
   padding: 1rem 2rem;
   box-sizing: border-box;
-  color: white;
+  color: var(--white);
 }
 
 .logo {
   font-weight: bold;
   font-size: 1.2rem;
-  color: #2c3e50;
+  color: var(--blue);
 }
 
 ul {

@@ -6,11 +6,13 @@ import ContactForm from "./components/ContactForm.vue";
 import Footer from "./components/Footer.vue";
 import BottoniPlayerTornaSu from "./components/BottoniPlayerTornaSu.vue";
 import mainBg from "@/assets/main-bg.png";
+import PaperPlane from "./components/PaperPlane.vue";
 </script>
 
 <template>
   <BottoniPlayerTornaSu />
   <Navbar />
+  <PaperPlane :baseRotation="180" :size="100" />
   <Hero />
   <!-- Wrapper principale con sfondo unico -->
   <div class="main-content" :style="{ backgroundImage: `url(${mainBg})` }">

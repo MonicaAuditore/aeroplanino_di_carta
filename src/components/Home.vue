@@ -366,7 +366,7 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
 .main-content label,
 .main-content input,
 .main-content textarea {
-  color: white;
+  color: #dddddd;
 }
 
 /* Hero section */
@@ -379,9 +379,9 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
   box-sizing: border-box;
   background-size: cover;
   background-position: center;
-  color: white;
   position: relative;
   text-align: left;
+  color: #dddddd;
 }
 
 .hero::before {
@@ -465,6 +465,7 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
 .section-image-text p {
   font-size: 1.1rem;
   line-height: 1.5;
+  padding-bottom: 1rem;
 }
 
 /* Sezione contatti */
@@ -521,6 +522,7 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
   border: 1px solid #ccc;
   resize: vertical;
   padding: 1rem;
+  color: #000;
 }
 
 .contact-box input {

@@ -13,12 +13,17 @@
   box-sizing: border-box;
 }
 
-a,
-.green {
-  text-decoration: none;
-  color: hsla(160, 100%, 37%, 1);
-  transition: 0.4s;
-  padding: 3px;
+.main-content,
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content p,
+.main-content span,
+.main-content li,
+.main-content label,
+.main-content input,
+.main-content textarea {
+  color: var(--white-soft);
 }
 
 body,
@@ -55,8 +60,8 @@ h3 {
 }
 
 button {
-  background-color: #ffffff;
-  color: #000c1a;
+  background-color: var(--white);
+  color: var(--blue);
   border: none;
   padding: 1rem 2rem;
   font-size: 1.1rem;
@@ -72,8 +77,8 @@ button {
 }
 
 button:hover {
-  background-color: #ffffff; /* rimane bianco */
-  color: #000c1a; /* testo scuro */
+  background-color: var(--white); /* rimane bianco */
+  color: var(--blue); /* testo scuro */
   box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1);
   animation: etherealGlow 1.5s infinite alternate ease-in-out;
 }
@@ -84,11 +89,5 @@ button:hover {
   }
   100% {
     box-shadow: 0 0 40px 9px rgba(255, 255, 255, 1);
-  }
-}
-
-@media (hover: hover) {
-  a:hover {
-    background-color: hsla(160, 100%, 37%, 0.2);
   }
 }

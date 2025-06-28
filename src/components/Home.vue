@@ -27,7 +27,7 @@
       <!-- Prima sezione -->
       <section id="sezione1" class="section-image-text">
         <div>
-          <p class="number">01</p>
+          <span class="number">01</span>
           <h2>Ambition</h2>
           <p>
             Era un martedì come tanti altri quando arrivò quel cliente in
@@ -64,7 +64,7 @@
       <!-- Seconda sezione -->
       <section id="sezione2" class="section-image-text reverse">
         <div>
-          <p class="number">02</p>
+          <span class="number">02</span>
           <h2>Excellence</h2>
           <p>
             L'eccellenza è sempre stata la mia bussola, anche quando non sapevo
@@ -95,7 +95,7 @@
       <!-- Terza sezione -->
       <section id="sezione3" class="section-image-text">
         <div>
-          <p class="number">03</p>
+          <span class="number">03</span>
           <h2>Caring</h2>
           <p>
             La mia prima insegnante di canto, mi diede un buon esempio. Quando
@@ -124,7 +124,7 @@
       <!-- Quarta sezione -->
       <section id="sezione4" class="section-image-text reverse">
         <div>
-          <p class="number">04</p>
+          <span class="number">04</span>
           <h2>Growth</h2>
           <p>
             Sei mesi dopo la fine di Boolean. Non era solo il codice che avevo
@@ -154,7 +154,7 @@
       <!-- Quinta sezione -->
       <section id="sezione5" class="section-image-text">
         <div>
-          <p class="number">05</p>
+          <span class="number">05</span>
           <h2>Courage</h2>
           <p>
             L'azienda mi stava facendo crescere come volevo. E quando mi
@@ -186,7 +186,7 @@
       <!-- Sesta sezione -->
       <section id="sezione6" class="section-image-text reverse">
         <div>
-          <p class="number">06</p>
+          <span class="number">06</span>
           <h2>Proactivity</h2>
           <p>
             Quando facevo la fotografa, non mi limitavo mai a "scattare belle
@@ -222,7 +222,7 @@
           alt="Immagine frammento di specchio"
           class="contact-image"
         />
-        <h2>Da Quel Martedì a Oggi...</h2>
+        <h3>Da Quel Martedì a Oggi...</h3>
         <p class="contact-description">
           E ora eccomi qui. Quell'aereoplanino di carta che non sapevo creare
           quel martedì di tanto tempo fa? Ora vola leggero attraverso questo
@@ -234,7 +234,7 @@
 
         <div class="contact-box">
           <p class="contact-box-intro">
-            Se anche tu credi nella magia dei sogni che prendono il volo,
+            Se anche tu credi nella magia dei sogni che prendono il volo,<br />
             facciamo insieme il prossimo viaggio.
           </p>
 
@@ -269,16 +269,21 @@
   </div>
 
   <!-- Audio player -->
-  <audio ref="audioRef" :src="lullaby" autoplay loop></audio>
+  <audio ref="audioRef" :src="lullaby"></audio>
 
   <div class="audio-player">
     <button @click="toggleAudio" ref="toggleButtonRef">🎵 Play</button>
   </div>
+
+  <!-- Bottone Torna su -->
+  <button v-if="showScroll" @click="scrollToTop" class="scroll-to-top">
+    <i class="fa-solid fa-arrow-up"></i>
+  </button>
 </template>
 
 <script setup>
 import Navbar from "./Navbar.vue";
-import { ref, onMounted } from "vue";
+import { ref, onMounted, onUnmounted } from "vue";
 import heroImage from "@/assets/hero-bg.png";
 import mainBg from "@/assets/main-bg.png";
 import lullaby from "@/assets/lullaby.mp3";
@@ -288,6 +293,7 @@ const email = ref("");
 const message = ref("");
 const audioRef = ref(null);
 const toggleButtonRef = ref(null);
+const showScroll = ref(false);
 
 function submitForm() {
   alert(
@@ -332,6 +338,17 @@ onMounted(() => {
     }
   }
 });
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: "smooth" });
+};
+
+const onScroll = () => {
+  showScroll.value = window.scrollY > 100;
+};
+
+onMounted(() => window.addEventListener("scroll", onScroll));
+onUnmounted(() => window.removeEventListener("scroll", onScroll));
 </script>
 
 <style scoped>
@@ -374,14 +391,13 @@ onMounted(() => {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 1200px;
-  margin-left: auto;
-  margin-right: auto;
+  max-width: 970px;
   padding: 2rem;
+  text-align: center;
 }
 
 .hero h1 {
-  font-size: 3rem;
+  font-size: 6rem;
   margin-bottom: 1rem;
 }
 
@@ -390,18 +406,8 @@ onMounted(() => {
   margin-bottom: 1.5rem;
 }
 
-.hero button {
-  background-color: #42b983;
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.1rem;
-  border-radius: 5px;
-  cursor: pointer;
-}
-
-.hero button:hover {
-  background-color: #369c6b;
+.hero-content button {
+  margin-top: 2rem;
 }
 
 .main-content {
@@ -409,7 +415,7 @@ onMounted(() => {
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 3rem 1rem;
+  padding: 3rem clamp(1rem, 5vw, 6rem); /* padding laterale che si adatta allo schermo */
   /* Overlay scuro trasparente: */
   position: relative;
   z-index: 0;
@@ -429,17 +435,22 @@ onMounted(() => {
 }
 
 .section-image-text {
+  padding-top: 5rem !important;
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 2rem;
-  padding: 2rem 1rem;
-  max-width: 1000px;
-  margin: 0 auto;
+  padding: 5rem 0;
   flex-wrap: wrap;
 }
+
+.section-image-text div,
 .section-image-text img {
-  width: 400px;
-  max-width: 100%;
+  flex: 1 1 50%;
+  max-width: 50%;
+}
+
+.section-image-text img {
   border-radius: 8px;
 }
 .section-image-text div {
@@ -457,6 +468,7 @@ onMounted(() => {
 .contact-section {
   text-align: center;
   padding: 3rem 1rem;
+  margin-top: 5rem;
 }
 
 .contact-image {
@@ -467,29 +479,29 @@ onMounted(() => {
 
 .contact-description {
   font-size: 1.2rem;
-  margin-bottom: 2rem;
+  margin: 2rem 0rem 4rem 0rem;
 }
 
 .contact-box {
-  background: #f0f0f0;
-  border-radius: 12px;
-  max-width: 600px;
+  background: #000c1a;
+  border-radius: 32px;
+  max-width: 800px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 4rem;
   text-align: left;
+  box-shadow: 0 0 34px 3px rgba(255, 255, 255, 0.4);
 }
 
 .contact-box-intro {
   text-align: center;
   font-weight: bold;
-  margin-bottom: 1.5rem;
-  color: #000 !important;
+  margin-bottom: 4rem;
 }
 
 .contact-box form {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.7rem;
 }
 
 .contact-box label {
@@ -502,26 +514,25 @@ onMounted(() => {
 .contact-box textarea {
   padding: 0.6rem;
   font-size: 1rem;
-  border-radius: 6px;
   border: 1px solid #ccc;
   resize: vertical;
+  padding: 1rem;
 }
 
-.contact-box button {
-  background-color: #42b983;
-  color: white;
-  padding: 0.8rem;
-  font-size: 1.1rem;
-  border: none;
-  border-radius: 6px;
-  cursor: pointer;
-  margin-top: 1rem;
+.contact-box input {
+  border-radius: 40px;
 }
 
-.contact-box button:hover {
-  background-color: #369c6b;
+.contact-box textarea {
+  border-radius: 20px;
 }
 
+form button {
+  align-self: center;
+  margin-top: 2rem;
+}
+
+/* Sezione footer */
 .site-footer {
   padding: 1.5rem 1rem;
   text-align: center;
@@ -530,6 +541,7 @@ onMounted(() => {
   margin-top: 3rem;
 }
 
+/* Audio player */
 .audio-player {
   position: fixed;
   bottom: 20px;
@@ -538,7 +550,7 @@ onMounted(() => {
   color: #000;
   border-radius: 50px;
   padding: 10px 20px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.7);
   z-index: 9999;
 }
 
@@ -547,6 +559,29 @@ onMounted(() => {
   border: none;
   font-size: 18px;
   cursor: pointer;
+  padding: 0rem;
+}
+
+/* Bottone torna su */
+.scroll-to-top {
+  position: fixed;
+  bottom: 80px;
+  right: 20px;
+  background-color: #000c1a;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 15px 3px rgba(255, 255, 255, 0.7);
+  z-index: 10000;
+  font-size: 16px;
+  transition: background-color 0.3s;
+  margin-bottom: 2rem;
+}
+
+.scroll-to-top:hover {
+  background-color: #112244;
 }
 
 /* Responsive */

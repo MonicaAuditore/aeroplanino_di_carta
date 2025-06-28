@@ -28,12 +28,16 @@ function scrollTo(id) {
 
 <style scoped>
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   width: 100vw; /* forza la larghezza piena */
   max-width: 100%; /* evita restrizioni */
   display: flex;
   justify-content: space-between;
   align-items: center;
   background-color: #2c3e50;
+  backdrop-filter: blur(6px); /* effetto vetro */
   padding: 1rem 2rem;
   box-sizing: border-box;
   color: white;

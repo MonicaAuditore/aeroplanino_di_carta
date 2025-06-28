@@ -260,19 +260,34 @@
           </form>
         </div>
       </section>
+
+      <!-- Footer -->
+      <footer class="site-footer">
+        <p>Made with 🩵 by Monica Evelyn Auditore</p>
+      </footer>
     </div>
+  </div>
+
+  <!-- Audio player -->
+  <audio ref="audioRef" :src="lullaby" autoplay loop></audio>
+
+  <div class="audio-player">
+    <button @click="toggleAudio" ref="toggleButtonRef">🎵 Play</button>
   </div>
 </template>
 
 <script setup>
 import Navbar from "./Navbar.vue";
-import { ref } from "vue";
+import { ref, onMounted } from "vue";
 import heroImage from "@/assets/hero-bg.png";
 import mainBg from "@/assets/main-bg.png";
+import lullaby from "@/assets/lullaby.mp3";
 
 const name = ref("");
 const email = ref("");
 const message = ref("");
+const audioRef = ref(null);
+const toggleButtonRef = ref(null);
 
 function submitForm() {
   alert(
@@ -289,9 +304,50 @@ function scrollToSection() {
     element.scrollIntoView({ behavior: "smooth" });
   }
 }
+
+function toggleAudio() {
+  const audio = audioRef.value;
+  const button = toggleButtonRef.value;
+
+  if (!audio || !button) return;
+
+  if (audio.paused) {
+    audio.play();
+    button.textContent = "🔇 Stop";
+  } else {
+    audio.pause();
+    button.textContent = "🎵 Play";
+  }
+}
+
+// Aggiorna il testo del bottone al caricamento della pagina
+onMounted(() => {
+  const audio = audioRef.value;
+  const button = toggleButtonRef.value;
+  if (audio && button) {
+    if (!audio.paused) {
+      button.textContent = "🔇 Stop";
+    } else {
+      button.textContent = "🎵 Play";
+    }
+  }
+});
 </script>
 
 <style scoped>
+.main-content,
+.main-content h1,
+.main-content h2,
+.main-content h3,
+.main-content p,
+.main-content span,
+.main-content li,
+.main-content label,
+.main-content input,
+.main-content textarea {
+  color: white;
+}
+
 /* Hero section */
 .hero {
   display: flex;
@@ -349,12 +405,12 @@ function scrollToSection() {
 }
 
 .main-content {
-  background-image: url("https://via.placeholder.com/1200x800"); /* metti qui la tua immagine */
+  background-image: url("https://via.placeholder.com/1200x800");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 3rem 1rem; /* aggiusta il padding se vuoi */
-  /* Se vuoi un overlay scuro trasparente: */
+  padding: 3rem 1rem;
+  /* Overlay scuro trasparente: */
   position: relative;
   z-index: 0;
 }
@@ -427,6 +483,7 @@ function scrollToSection() {
   text-align: center;
   font-weight: bold;
   margin-bottom: 1.5rem;
+  color: #000 !important;
 }
 
 .contact-box form {
@@ -463,6 +520,33 @@ function scrollToSection() {
 
 .contact-box button:hover {
   background-color: #369c6b;
+}
+
+.site-footer {
+  padding: 1.5rem 1rem;
+  text-align: center;
+  font-size: 1rem;
+  color: #555;
+  margin-top: 3rem;
+}
+
+.audio-player {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #fff;
+  color: #000;
+  border-radius: 50px;
+  padding: 10px 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+}
+
+.audio-player button {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 /* Responsive */

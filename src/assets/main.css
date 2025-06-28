@@ -1,4 +1,11 @@
 @import "./base.css";
+@font-face {
+  font-family: "Rosica";
+  src: url("Rosica.woff2") format("woff2"), url("Rosica.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
+}
 
 #app {
   width: 100%;
@@ -12,6 +19,26 @@ a,
   color: hsla(160, 100%, 37%, 1);
   transition: 0.4s;
   padding: 3px;
+}
+
+body,
+p,
+span,
+li,
+label,
+input,
+textarea {
+  font-family: "Open Sans", sans-serif;
+}
+
+/* Titoli con font diverso */
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: Rosica;
 }
 
 @media (hover: hover) {

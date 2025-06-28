@@ -277,7 +277,7 @@
 
   <!-- Bottone Torna su -->
   <button v-if="showScroll" @click="scrollToTop" class="scroll-to-top">
-    <i class="fa-solid fa-arrow-up"></i>
+    <font-awesome-icon icon="arrow-up-long" />
   </button>
 </template>
 
@@ -287,6 +287,10 @@ import { ref, onMounted, onUnmounted } from "vue";
 import heroImage from "@/assets/hero-bg.png";
 import mainBg from "@/assets/main-bg.png";
 import lullaby from "@/assets/lullaby.mp3";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
+library.add(faUser);
 
 const name = ref("");
 const email = ref("");
@@ -411,7 +415,6 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
 }
 
 .main-content {
-  background-image: url("https://via.placeholder.com/1200x800");
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
@@ -479,17 +482,18 @@ onUnmounted(() => window.removeEventListener("scroll", onScroll));
 
 .contact-description {
   font-size: 1.2rem;
-  margin: 2rem 0rem 4rem 0rem;
+  max-width: 73rem;
+  margin: 3rem auto 5rem;
 }
 
 .contact-box {
   background: #000c1a;
   border-radius: 32px;
   max-width: 800px;
-  margin: 0 auto;
   padding: 4rem;
   text-align: left;
   box-shadow: 0 0 34px 3px rgba(255, 255, 255, 0.4);
+  margin: 0 auto;
 }
 
 .contact-box-intro {

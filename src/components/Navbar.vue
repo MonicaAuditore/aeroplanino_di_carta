@@ -46,6 +46,7 @@ function scrollTo(id) {
 .logo {
   font-weight: bold;
   font-size: 1.2rem;
+  color: #2c3e50;
 }
 
 ul {

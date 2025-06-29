@@ -15,32 +15,48 @@
       prossimo decollo.
     </p>
 
-    <div class="contact-box">
-      <p class="contact-box-intro">
-        Se anche tu credi nella magia dei sogni che prendono il volo,<br />
-        facciamo insieme il prossimo viaggio.
-      </p>
+    <div class="contact-container">
+      <!-- Immagine decorativa destra -->
+      <img
+        :src="evelyn"
+        alt="Decorazione destra"
+        class="decorative-image decorative-right"
+      />
 
-      <form @submit.prevent="submitForm">
-        <input
-          type="text"
-          v-model="name"
-          placeholder="Scrivi qui il tuo nome"
-          required
+      <div class="contact-box">
+        <!-- Immagine decorativa sinistra posizionata rispetto al contact-box -->
+        <img
+          :src="frammento02"
+          alt="Decorazione sinistra"
+          class="decorative-image decorative-left"
         />
-        <input
-          type="email"
-          v-model="email"
-          placeholder="Scrivi qui la tua email"
-          required
-        />
-        <textarea
-          v-model="message"
-          placeholder="Scrivi qui il tuo messaggio"
-          required
-        ></textarea>
-        <button class="my-btn" type="submit">Verso nuovi cieli...</button>
-      </form>
+
+        <p class="contact-box-intro">
+          Se anche tu credi nella magia dei sogni che prendono il volo,<br />
+          facciamo insieme il prossimo viaggio.
+        </p>
+
+        <form @submit.prevent="submitForm">
+          <input
+            type="text"
+            v-model="name"
+            placeholder="Scrivi qui il tuo nome"
+            required
+          />
+          <input
+            type="email"
+            v-model="email"
+            placeholder="Scrivi qui la tua email"
+            required
+          />
+          <textarea
+            v-model="message"
+            placeholder="Scrivi qui il tuo messaggio"
+            required
+          ></textarea>
+          <button class="my-btn" type="submit">Verso nuovi cieli...</button>
+        </form>
+      </div>
     </div>
   </section>
 </template>
@@ -48,6 +64,8 @@
 <script setup>
 import { ref } from "vue";
 import frammento from "@/assets/frammento.png";
+import frammento02 from "@/assets/frammento02.png";
+import evelyn from "@/assets/evelyn.png";
 
 const name = ref("");
 const email = ref("");
@@ -71,9 +89,10 @@ h2 {
 h3 {
   font-size: 4rem;
 }
+
 .contact-section {
   text-align: center;
-  padding: 3rem 1rem;
+  padding: 3rem 0rem;
   margin-top: 5rem;
 }
 
@@ -84,6 +103,7 @@ h3 {
   width: 110px;
   height: 145px;
   object-fit: cover;
+  cursor: pointer;
   animation: float 6s ease-in-out infinite;
   transition: transform 0.3s ease;
 }
@@ -104,11 +124,56 @@ h3 {
   }
 }
 
+@keyframes float-fragment {
+  0%,
+  100% {
+    transform: translateY(-42%) rotate(14deg);
+  }
+  25% {
+    transform: translateY(-45%) rotate(16deg);
+  }
+  50% {
+    transform: translateY(-40%) rotate(12deg);
+  }
+  75% {
+    transform: translateY(-48%) rotate(18deg);
+  }
+}
+
 .contact-description {
   font-size: 1.2rem;
   max-width: 73rem;
   margin: 3rem auto 5rem;
   padding: 0 1rem;
+}
+
+/* Container per il posizionamento relativo */
+.contact-container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+/* Immagine decorativa destra posizionata rispetto al container */
+.decorative-image.decorative-right {
+  position: absolute;
+  top: 82%;
+  right: 0;
+  width: 25rem;
+  transform: translateY(-50%);
+  z-index: 1;
+}
+
+/* Immagine decorativa sinistra posizionata rispetto al contact-box */
+.decorative-image.decorative-left {
+  position: absolute;
+  top: 360.766px;
+  left: -123px;
+  width: 11rem;
+  transform: translateY(-42%) rotate(14deg);
+  z-index: 1;
+  animation: float-fragment 7s ease-in-out infinite;
 }
 
 .contact-box {
@@ -119,6 +184,8 @@ h3 {
   text-align: left;
   box-shadow: 0 0 34px 3px rgba(255, 255, 255, 0.4);
   margin: 0 auto;
+  position: relative;
+  z-index: 2;
 }
 
 .contact-box-intro {
@@ -180,6 +247,14 @@ form button {
     width: 120px;
     height: 120px;
   }
+
+  .decorative-image.decorative-left {
+    width: 25rem;
+  }
+
+  .decorative-image.decorative-right {
+    width: 30rem;
+  }
 }
 
 /* Mobile */
@@ -214,6 +289,11 @@ form button {
     width: 100%;
     padding: 1rem;
     font-size: 1.1rem;
+  }
+
+  /* Nascondi o riduci le immagini decorative su mobile */
+  .decorative-image {
+    display: none;
   }
 }
 

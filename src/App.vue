@@ -28,7 +28,6 @@ import PaperPlane from "./components/PaperPlane.vue";
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  padding: 3rem clamp(1rem, 5vw, 6rem); /* padding laterale che si adatta allo schermo */
   margin-top: -294px; /* metà dell’altezza della sfumatura */
   position: relative;
   z-index: 1;
@@ -49,10 +48,10 @@ import PaperPlane from "./components/PaperPlane.vue";
   background: linear-gradient(
     to bottom,
     #011a31 0%,
-    rgba(1, 26, 49, 0.9) 20%,
-    rgba(1, 26, 49, 0.6) 50%,
-    rgba(1, 26, 49, 0.2) 80%,
-    rgba(1, 26, 49, 0) 100%
+    rgba(1, 26, 49, 0.9) 13%,
+    rgba(1, 26, 49, 0.6) 27%,
+    rgba(1, 26, 49, 0.2) 43%,
+    rgba(1, 26, 49, 0) 79%
   );
 }
 

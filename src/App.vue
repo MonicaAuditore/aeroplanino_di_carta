@@ -55,4 +55,20 @@ import PaperPlane from "./components/PaperPlane.vue";
     rgba(1, 26, 49, 0) 100%
   );
 }
+
+@media (max-width: 768px) {
+  .transition-section {
+    position: relative;
+    z-index: 2;
+    height: 294px;
+    background: linear-gradient(
+      to bottom,
+      #011a31 0%,
+      rgba(1, 26, 49, 0.9) 13%,
+      rgba(1, 26, 49, 0.6) 34%,
+      rgba(1, 26, 49, 0.2) 43%,
+      rgba(1, 26, 49, 0) 71%
+    );
+  }
+}
 </style>

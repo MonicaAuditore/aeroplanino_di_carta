@@ -1,5 +1,9 @@
 <template>
-  <section class="hero" :style="{ backgroundImage: `url(${heroImage})` }">
+  <section
+    class="hero"
+    lang="it"
+    :style="{ backgroundImage: `url(${heroImage})` }"
+  >
     <div class="glass-left">
       <div class="hero-content">
         <h1>L'Aeroplanino di Carta e i Sei Venti</h1>
@@ -122,14 +126,24 @@ function scrollToSection() {
   font-size: 5.5rem;
   margin-bottom: 1rem;
   line-height: 1.2;
-  word-break: break-word;
+  /* Sillabazione italiana invece di break-word */
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero p {
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
   line-height: 1.6;
-  word-break: break-word;
+  /* Sillabazione italiana invece di break-word */
+  hyphens: auto;
+  -webkit-hyphens: auto;
+  -ms-hyphens: auto;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
 }
 
 .hero-content button {
@@ -143,78 +157,99 @@ function scrollToSection() {
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;
+    background-position: center center; /* Centra l'immagine su mobile */
+    background-attachment: scroll; /* Evita problemi di performance */
   }
 
   .glass-left {
     width: 100%;
-    padding: 2rem 2rem 4rem 2rem;
+    padding: 3rem 2rem 3rem 2rem;
 
-    /* Sfumatura verticale per mobile */
-    background: linear-gradient(
-      180deg,
-      rgba(255, 255, 255, 0.12) 0%,
-      rgba(255, 255, 255, 0.08) 70%,
-      rgba(255, 255, 255, 0.02) 95%,
-      transparent 100%
-    );
+    /* Overlay più forte per mobile con sfumatura radiale */
+    background: radial-gradient(
+        ellipse at center,
+        rgba(0, 0, 0, 0.3) 0%,
+        rgba(0, 0, 0, 0.5) 50%,
+        rgba(0, 0, 0, 0.7) 100%
+      ),
+      linear-gradient(
+        180deg,
+        rgba(255, 255, 255, 0.08) 0%,
+        rgba(255, 255, 255, 0.06) 50%,
+        rgba(255, 255, 255, 0.02) 100%
+      );
 
-    /* Maschera verticale migliorata per mobile */
+    /* Backdrop blur ridotto per performance mobile */
+    backdrop-filter: blur(8px);
+    -webkit-backdrop-filter: blur(8px);
+
+    /* Maschera più semplice per mobile */
     mask: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 1) 75%,
-      rgba(0, 0, 0, 0.9) 82%,
-      rgba(0, 0, 0, 0.6) 88%,
-      rgba(0, 0, 0, 0.3) 93%,
-      rgba(0, 0, 0, 0.1) 96%,
-      rgba(0, 0, 0, 0.02) 98%,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.95) 80%,
+      rgba(0, 0, 0, 0.7) 90%,
+      rgba(0, 0, 0, 0.3) 96%,
       transparent 100%
     );
     -webkit-mask: linear-gradient(
       180deg,
-      rgba(0, 0, 0, 1) 0%,
-      rgba(0, 0, 0, 1) 75%,
-      rgba(0, 0, 0, 0.9) 82%,
-      rgba(0, 0, 0, 0.6) 88%,
-      rgba(0, 0, 0, 0.3) 93%,
-      rgba(0, 0, 0, 0.1) 96%,
-      rgba(0, 0, 0, 0.02) 98%,
+      rgba(0, 0, 0, 0.95) 0%,
+      rgba(0, 0, 0, 0.95) 80%,
+      rgba(0, 0, 0, 0.7) 90%,
+      rgba(0, 0, 0, 0.3) 96%,
       transparent 100%
     );
 
-    box-shadow: 0 0 50px rgba(255, 255, 255, 0.05),
-      0 0 100px rgba(255, 255, 255, 0.02);
+    /* Bordo sottile per definire meglio l'area */
+    border-radius: 0 0 24px 24px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2),
+      0 0 50px rgba(255, 255, 255, 0.05), inset 0 1px 0 rgba(255, 255, 255, 0.1);
   }
 
   .hero-content {
     text-align: center;
     padding: 1rem;
+    max-width: 500px; /* Limita la larghezza per migliore leggibilità */
   }
 
   .hero h1 {
-    font-size: 2.4rem;
+    font-size: 2.8rem;
+    margin-bottom: 1.5rem;
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Ombra per leggibilità */
+    /* Migliore gestione del testo mobile */
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    line-height: 1.1;
   }
 
   .hero p {
-    font-size: 1rem;
+    font-size: 1.1rem;
+    margin-bottom: 1.2rem;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.3);
+    opacity: 0.95; /* Leggera trasparenza per gerarchia visiva */
+    /* Migliore gestione del testo mobile */
+    hyphens: auto;
+    -webkit-hyphens: auto;
+    line-height: 1.5;
   }
 
   .hero-content button {
+    margin-top: 2.5rem;
+    padding: 1rem 2rem;
+    font-size: 1.1rem;
     margin-left: auto;
     margin-right: auto;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.2);
   }
 }
 
 @media (max-width: 768px) {
-  h1 {
+  .hero h1 {
     font-size: 3.5rem;
   }
 
-  h2 {
-    font-size: 3rem;
-  }
-
-  p {
+  .hero p {
     font-size: 16px;
   }
 

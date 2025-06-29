@@ -1,7 +1,9 @@
 <template>
   <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#">Mio Sito</a>
+      <a class="navbar-brand" href="#">
+        <!-- <img :src="logo" alt="Logo" height="40" /> -->
+      </a>
       <button
         class="navbar-toggler"
         type="button"
@@ -44,6 +46,10 @@
     </div>
   </nav>
 </template>
+
+<script setup>
+import logo from "@/assets/logo.png";
+</script>
 
 <style>
 .navbar-toggler:focus {

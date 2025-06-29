@@ -187,10 +187,12 @@ h3 {
 @media (max-width: 1024px) {
   #sezione1 img {
     max-width: 83%;
+    padding-top: 3rem;
   }
 
   #sezione2 img {
     width: 67%;
+    padding-top: 5rem;
   }
 
   #sezione3 img {
@@ -216,6 +218,7 @@ h3 {
     align-items: flex-start;
     padding-left: 0 !important;
     padding-right: 0 !important;
+    padding-top: 0rem;
   }
 
   p {

@@ -245,16 +245,16 @@ form button {
   }
 
   .contact-image {
-    width: 120px;
-    height: 120px;
+    width: 76px;
+    height: 102px;
   }
 
   .decorative-image.decorative-left {
-    width: 25rem;
+    width: 9rem;
   }
 
   .decorative-image.decorative-right {
-    width: 30rem;
+    width: 16rem;
   }
 }
 
@@ -282,8 +282,8 @@ form button {
   }
 
   .contact-image {
-    width: 100px;
-    height: 100px;
+    width: 76px;
+    height: 102px;
   }
 
   form button {

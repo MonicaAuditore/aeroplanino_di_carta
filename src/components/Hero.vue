@@ -46,7 +46,7 @@ function scrollToSection() {
   background-size: cover;
   background-position: 80% -17%;
   position: relative;
-  color: #dddddd;
+  color: #dbdbdb;
   text-align: left;
 }
 
@@ -210,11 +210,9 @@ function scrollToSection() {
   .hero-content {
     text-align: center;
     padding: 1rem;
-    max-width: 500px; /* Limita la larghezza per migliore leggibilità */
   }
 
   .hero h1 {
-    font-size: 2.8rem;
     margin-bottom: 1.5rem;
     text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3); /* Ombra per leggibilità */
     /* Migliore gestione del testo mobile */

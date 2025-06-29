@@ -156,11 +156,12 @@ h3 {
 }
 
 /* Immagine decorativa destra posizionata rispetto al container */
+
 .decorative-image.decorative-right {
   position: absolute;
-  top: 82%;
+  top: 91%;
   right: 0;
-  width: 25rem;
+  width: 18rem;
   transform: translateY(-50%);
   z-index: 1;
 }

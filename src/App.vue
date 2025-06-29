@@ -33,11 +33,16 @@ import PaperPlane from "./components/PaperPlane.vue";
   margin-top: -294px; /* metà dell'altezza della sfumatura */
   position: relative;
   z-index: 1;
+  overflow: hidden; /* Nasconde il blur che esce dai bordi */
 }
 
 .background-blur {
   position: absolute;
-  inset: 0;
+  /* Espandi l'immagine oltre i bordi per compensare il blur */
+  top: -20px;
+  left: -20px;
+  right: -20px;
+  bottom: -20px;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;

@@ -30,7 +30,7 @@ import PaperPlane from "./components/PaperPlane.vue";
 
 <style scoped>
 .main-content {
-  margin-top: -294px; /* metà dell'altezza della sfumatura */
+  margin-top: -300px; /* metà dell'altezza della sfumatura */
   position: relative;
   z-index: 1;
   overflow: hidden; /* Nasconde il blur che esce dai bordi */

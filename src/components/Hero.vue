@@ -48,6 +48,7 @@ function scrollToSection() {
   position: relative;
   color: #dbdbdb;
   text-align: left;
+  z-index: 3;
 }
 
 /* Glass area con effetto soffuso migliorato */

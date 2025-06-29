@@ -156,8 +156,8 @@ h3 {
 
 #sezione6 img {
   max-width: 37%;
-  padding-left: 6rem;
-  padding-top: 6rem;
+  padding-left: 11rem;
+  padding-top: 16rem;
 }
 
 .section-image-text div,

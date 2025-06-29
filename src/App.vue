@@ -16,7 +16,12 @@ import PaperPlane from "./components/PaperPlane.vue";
   <Hero />
   <section class="transition-section"></section>
   <!-- Wrapper principale con sfondo unico -->
-  <div class="main-content" :style="{ backgroundImage: `url(${mainBg})` }">
+  <div class="main-content">
+    <!-- Sfondo sfocato separato -->
+    <div
+      class="background-blur"
+      :style="{ backgroundImage: `url(${mainBg})` }"
+    ></div>
     <ImageTextSection />
     <ContactForm />
     <Footer />
@@ -25,19 +30,31 @@ import PaperPlane from "./components/PaperPlane.vue";
 
 <style scoped>
 .main-content {
+  margin-top: -294px; /* metà dell'altezza della sfumatura */
+  position: relative;
+  z-index: 1;
+}
+
+.background-blur {
+  position: absolute;
+  inset: 0;
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  margin-top: -294px; /* metà dell’altezza della sfumatura */
-  position: relative;
-  z-index: 1;
+  filter: blur(9px); /* Blur morbido - puoi regolare il valore */
+  z-index: -2;
 }
 
 .main-content::before {
   content: "";
   position: absolute;
   inset: 0;
-  background-color: rgba(0, 0, 0, 0.4); /* overlay scuro per contrasto testo */
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.589
+  ); /* overlay scuro per contrasto testo */
   z-index: -1;
 }
 

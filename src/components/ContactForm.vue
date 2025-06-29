@@ -23,6 +23,23 @@
         class="decorative-image decorative-right"
       />
 
+      <!-- Aereoplanino con effetto galleggiamento -->
+      <img
+        :src="evelynPlane"
+        alt="Decorazione destra"
+        class="decorative-image decorative-right plane"
+      />
+
+      <!-- Container per le lucine magiche dietro l'aereoplanino -->
+      <div class="magic-lights-container">
+        <div class="magic-light"></div>
+        <div class="magic-light"></div>
+        <div class="magic-light"></div>
+        <div class="magic-light"></div>
+        <div class="magic-light"></div>
+        <div class="magic-light"></div>
+      </div>
+
       <div class="contact-box">
         <!-- Immagine decorativa sinistra posizionata rispetto al contact-box -->
         <img
@@ -66,6 +83,7 @@ import { ref } from "vue";
 import frammento from "@/assets/frammento.png";
 import frammento02 from "@/assets/frammento02.png";
 import evelyn from "@/assets/evelyn.png";
+import evelynPlane from "@/assets/evelyn_plane.png";
 
 const name = ref("");
 const email = ref("");
@@ -140,6 +158,60 @@ h3 {
   }
 }
 
+/* Animazione di galleggiamento per l'aereoplanino */
+@keyframes float-plane {
+  0%,
+  100% {
+    transform: translateY(-50%) translateX(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-55%) translateX(-5px) rotate(1deg);
+  }
+  50% {
+    transform: translateY(-45%) translateX(3px) rotate(-0.5deg);
+  }
+  75% {
+    transform: translateY(-52%) translateX(-2px) rotate(1.5deg);
+  }
+}
+
+/* Animazioni per le lucine magiche */
+@keyframes sparkle {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.3) rotate(0deg);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1) rotate(180deg);
+  }
+}
+
+@keyframes sparkle-delayed {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.5) rotate(0deg);
+  }
+  60% {
+    opacity: 0.8;
+    transform: scale(1.2) rotate(270deg);
+  }
+}
+
+@keyframes sparkle-slow {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0.2) rotate(0deg);
+  }
+  40% {
+    opacity: 0.6;
+    transform: scale(0.8) rotate(90deg);
+  }
+}
+
 .contact-description {
   font-size: 1.2rem;
   max-width: 73rem;
@@ -156,14 +228,95 @@ h3 {
 }
 
 /* Immagine decorativa destra posizionata rispetto al container */
-
 .decorative-image.decorative-right {
   position: absolute;
   top: 91%;
   right: 0;
   width: 18rem;
   transform: translateY(-50%);
-  z-index: 1;
+  z-index: 10; /* Sopra al form */
+}
+
+/* Aereoplanino con animazione di galleggiamento */
+.decorative-image.decorative-right.plane {
+  position: absolute;
+  top: 93%;
+  right: 175px;
+  width: 5rem;
+  transform: translateY(-50%);
+  z-index: 11; /* Sopra a tutto */
+  animation: float-plane 4s ease-in-out infinite;
+  transition: animation-duration 0.3s ease;
+}
+
+/* Container per le lucine magiche */
+.magic-lights-container {
+  position: absolute;
+  top: 93%;
+  right: 175px;
+  width: 5rem;
+  height: 5rem;
+  transform: translateY(-50%);
+  z-index: 9; /* Dietro l'aereoplanino ma sopra al form */
+  pointer-events: none;
+}
+
+/* Singole lucine */
+.magic-light {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffffff 0%, #87ceeb 50%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px #ffffff, 0 0 12px #87ceeb,
+    0 0 18px rgba(135, 206, 235, 0.3);
+}
+
+.magic-light:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation: sparkle 2s infinite;
+}
+
+.magic-light:nth-child(2) {
+  top: 30%;
+  right: 15%;
+  animation: sparkle-delayed 2.5s infinite 0.5s;
+}
+
+.magic-light:nth-child(3) {
+  bottom: 25%;
+  left: 30%;
+  animation: sparkle-slow 3s infinite 1s;
+}
+
+.magic-light:nth-child(4) {
+  top: 60%;
+  right: 30%;
+  animation: sparkle 2.2s infinite 1.5s;
+}
+
+.magic-light:nth-child(5) {
+  bottom: 15%;
+  right: 20%;
+  animation: sparkle-delayed 2.8s infinite 0.8s;
+}
+
+.magic-light:nth-child(6) {
+  top: 45%;
+  left: 10%;
+  animation: sparkle-slow 2.3s infinite 2s;
+}
+
+/* Effetto hover per maggiore interattività */
+.decorative-image.decorative-right.plane:hover {
+  animation-duration: 2s;
+}
+
+.decorative-image.decorative-right.plane:hover
+  ~ .magic-lights-container
+  .magic-light {
+  animation-duration: 1s;
 }
 
 /* Immagine decorativa sinistra posizionata rispetto al contact-box */
@@ -256,6 +409,17 @@ form button {
   .decorative-image.decorative-right {
     width: 16rem;
   }
+
+  .decorative-image.decorative-right.plane {
+    width: 4rem;
+    right: 140px;
+  }
+
+  .magic-lights-container {
+    width: 4rem;
+    height: 4rem;
+    right: 140px;
+  }
 }
 
 /* Mobile */
@@ -292,8 +456,9 @@ form button {
     font-size: 1.1rem;
   }
 
-  /* Nascondi o riduci le immagini decorative su mobile */
-  .decorative-image {
+  /* Nascondi le immagini decorative e le lucine su mobile */
+  .decorative-image,
+  .magic-lights-container {
     display: none;
   }
 }

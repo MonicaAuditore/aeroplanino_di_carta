@@ -12,5 +12,6 @@
   font-size: 1rem;
   color: #555;
   margin-top: 3rem;
+  font-size: 14px;
 }
 </style>

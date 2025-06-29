@@ -1,5 +1,8 @@
 <template>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+  <nav
+    class="navbar navbar-expand-lg navbar-dark fixed-top"
+    style="background-color: var(--blue)"
+  >
     <div class="container-fluid">
       <a class="navbar-brand" href="#">
         <!-- <img :src="logo" alt="Logo" height="40" /> -->

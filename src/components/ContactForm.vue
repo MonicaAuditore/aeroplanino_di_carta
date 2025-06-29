@@ -1,7 +1,7 @@
 <template>
   <section id="contatti" class="contact-section">
     <img
-      src="https://via.placeholder.com/150"
+      :src="frammento"
       alt="Immagine frammento di specchio"
       class="contact-image"
     />
@@ -47,6 +47,7 @@
 
 <script setup>
 import { ref } from "vue";
+import frammento from "@/assets/frammento.png";
 
 const name = ref("");
 const email = ref("");
@@ -80,9 +81,27 @@ h3 {
   margin: 0 auto 1.5rem;
   display: block;
   border-radius: 50%;
-  width: 150px;
-  height: 150px;
+  width: 110px;
+  height: 145px;
   object-fit: cover;
+  animation: float 6s ease-in-out infinite;
+  transition: transform 0.3s ease;
+}
+
+@keyframes float {
+  0%,
+  100% {
+    transform: translateY(0px) rotate(0deg);
+  }
+  25% {
+    transform: translateY(-10px) rotate(2deg);
+  }
+  50% {
+    transform: translateY(-5px) rotate(0deg);
+  }
+  75% {
+    transform: translateY(-15px) rotate(-2deg);
+  }
 }
 
 .contact-description {

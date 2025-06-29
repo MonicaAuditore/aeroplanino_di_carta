@@ -13,7 +13,7 @@
         specchio che ho raccolto per costruire la mia verità.
       </p>
       <p>Benvenuto nel mio viaggio...</p>
-      <button @click="scrollToSection">Vola con me</button>
+      <button class="my-btn" @click="scrollToSection">Vola con me</button>
     </div>
   </section>
 </template>
@@ -55,10 +55,11 @@ function scrollToSection() {
 .hero-content {
   position: relative;
   z-index: 2;
-  max-width: 970px;
+  max-width: 990px;
   width: 100%;
   padding-left: 5rem;
   margin-top: -7rem;
+  text-align: center;
 }
 
 /* Default (desktop-like) */
@@ -106,6 +107,24 @@ function scrollToSection() {
   .hero-content button {
     margin-left: auto;
     margin-right: auto;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .number {
+    font-size: 3rem;
   }
 }
 </style>

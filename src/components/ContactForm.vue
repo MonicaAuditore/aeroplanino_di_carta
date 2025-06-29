@@ -39,7 +39,7 @@
           placeholder="Scrivi qui il tuo messaggio"
           required
         ></textarea>
-        <button type="submit">Verso nuovi cieli...</button>
+        <button class="my-btn" type="submit">Verso nuovi cieli...</button>
       </form>
     </div>
   </section>
@@ -63,6 +63,13 @@ function submitForm() {
 </script>
 
 <style>
+h2 {
+  font-size: 7rem;
+}
+
+h3 {
+  font-size: 4rem;
+}
 .contact-section {
   text-align: center;
   padding: 3rem 1rem;
@@ -188,6 +195,25 @@ form button {
     width: 100%;
     padding: 1rem;
     font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2,
+  h3 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .number {
+    font-size: 3rem;
   }
 }
 </style>

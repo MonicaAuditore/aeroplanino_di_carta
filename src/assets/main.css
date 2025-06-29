@@ -60,7 +60,7 @@ h3 {
   font-size: 7rem;
 }
 
-button {
+.my-btn {
   background-color: var(--white);
   color: var(--blue);
   border: none;
@@ -77,7 +77,7 @@ button {
   letter-spacing: 0.5px;
 }
 
-button:hover {
+.my-btn:hover {
   background-color: var(--white); /* rimane bianco */
   color: var(--blue); /* testo scuro */
   box-shadow: 0 0 30px 10px rgba(255, 255, 255, 1);

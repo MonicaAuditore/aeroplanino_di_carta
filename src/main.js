@@ -5,6 +5,10 @@ import "@fortawesome/fontawesome-free/css/all.min.css";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 
+// Bootstrap
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap";
+
 // Icone specifiche
 import {
   faUser,

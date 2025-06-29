@@ -101,6 +101,13 @@ const sections = [
 </script>
 
 <style scoped>
+h2 {
+  font-size: 7rem;
+}
+
+h3 {
+  font-size: 4rem;
+}
 .section-image-text.reverse {
   flex-direction: row-reverse;
 }
@@ -159,6 +166,24 @@ const sections = [
   .section-image-text p,
   .section-image-text .number {
     text-align: left;
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .number {
+    font-size: 3rem;
   }
 }
 </style>

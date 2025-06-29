@@ -115,6 +115,7 @@ h2 {
 h3 {
   font-size: 4rem;
 }
+
 .section-image-text.reverse {
   flex-direction: row-reverse;
   padding-right: 5rem;
@@ -168,12 +169,15 @@ h3 {
 .section-image-text img {
   border-radius: 8px;
 }
+
 .section-image-text div {
   flex: 1;
 }
+
 .section-image-text h2 {
   margin-bottom: 0.5rem;
 }
+
 .section-image-text p {
   font-size: 1.1rem;
   line-height: 1.5;
@@ -181,10 +185,37 @@ h3 {
 }
 
 @media (max-width: 1024px) {
+  #sezione1 img {
+    max-width: 83%;
+  }
+
+  #sezione2 img {
+    width: 67%;
+  }
+
+  #sezione3 img {
+    width: 67%;
+    align-self: flex-end;
+  }
+
+  #sezione4 img {
+    width: 34%;
+  }
+
+  #sezione5 img {
+    width: 65%;
+  }
+
+  #sezione6 img {
+    width: 39%;
+  }
+
   .section-image-text,
   .section-image-text.reverse {
     flex-direction: column;
     align-items: flex-start;
+    padding-left: 0 !important;
+    padding-right: 0 !important;
   }
 
   p {
@@ -198,24 +229,65 @@ h3 {
     text-align: left;
   }
 
+  /* Padding uniforme per tutti i testi quando vanno in colonna */
+  .section-image-text div,
+  .section-image-text.reverse div,
+  #sezione1 div,
+  #sezione2 div,
+  #sezione3 div,
+  #sezione4 div,
+  #sezione5 div,
+  #sezione6 div {
+    padding: 0rem 2rem !important;
+  }
+
+  /* Centrare le immagini specifiche quando vanno in colonna */
+  #sezione2 img,
+  #sezione4 img,
+  #sezione5 img,
+  #sezione6 img {
+    align-self: center;
+    margin: 0 auto;
+    padding: 0;
+    max-width: 100%;
+  }
+
   .section-image-text h2,
   .section-image-text p,
   .section-image-text .number {
     text-align: left;
   }
+
+  .decorative-image.decorative-left {
+    width: 10rem;
+  }
+
+  .decorative-image.decorative-right {
+    width: 15rem;
+  }
+
+  .contact-image {
+    width: 81px;
+    height: 98px;
+  }
 }
 
 @media (max-width: 768px) {
+  .contact-image {
+    width: 46px;
+    height: 63px;
+  }
+
+  p {
+    font-size: 11px;
+  }
+
   h1 {
     font-size: 3.5rem;
   }
 
   h2 {
     font-size: 3rem;
-  }
-
-  p {
-    font-size: 16px;
   }
 
   .number {

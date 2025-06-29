@@ -31,7 +31,8 @@
           d="M2 20 L20 2 L38 20 L28 18 L20 25 L12 18 Z"
           fill="#e2e8f0"
           stroke="#94a3b8"
-          stroke-width="0.5px"
+          stroke-width="0.5"
+          stroke-opacity="0.6"
           filter="url(#glow)"
         />
         <path d="M20 2 L20 25 L12 18 Z" fill="#f1f5f9" />
@@ -64,6 +65,7 @@ export default {
       particles: [],
       lastPosition: { x: 0, y: 0 },
       animationId: null,
+      floatTime: 0, // Per l'effetto di galleggiamento
     };
   },
   computed: {
@@ -80,11 +82,18 @@ export default {
       const dynamicRotation = Math.cos(this.scrollY * this.frequency) * 20;
       const totalRotation = this.baseRotation + dynamicRotation;
 
-      // Aggiorna la posizione per le particelle
-      this.updateParticles(x, y);
+      // Effetto di galleggiamento continuo (aumentato)
+      const floatX = Math.sin(this.floatTime * 0.8) * 8; // Da 3px a 8px
+      const floatY = Math.cos(this.floatTime * 1.2) * 12; // Da 4px a 12px
+      const floatRotation = Math.sin(this.floatTime * 0.6) * 5; // Da 2° a 5°
+
+      // Aggiorna la posizione per le particelle (con galleggiamento)
+      this.updateParticles(x + floatX, y + floatY);
 
       return {
-        transform: `translate(${x}px, ${y}px) rotate(${totalRotation}deg)`,
+        transform: `translate(${x + floatX}px, ${y + floatY}px) rotate(${
+          totalRotation + floatRotation
+        }deg)`,
         opacity: this.isVisible ? 1 : 0,
         visibility: this.isVisible ? "visible" : "hidden",
       };
@@ -182,6 +191,9 @@ export default {
 
     startAnimation() {
       const animate = () => {
+        // Incrementa il tempo per l'effetto di galleggiamento
+        this.floatTime += 0.016; // ~60fps
+
         // Aggiorna le particelle esistenti
         this.particles = this.particles
           .map((particle) => ({

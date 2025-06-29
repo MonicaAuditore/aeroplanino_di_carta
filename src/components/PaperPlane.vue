@@ -30,8 +30,8 @@
         <path
           d="M2 20 L20 2 L38 20 L28 18 L20 25 L12 18 Z"
           fill="#e2e8f0"
-          stroke="#64748b"
-          stroke-width="1"
+          stroke="#94a3b8"
+          stroke-width="0.5px"
           filter="url(#glow)"
         />
         <path d="M20 2 L20 25 L12 18 Z" fill="#f1f5f9" />
@@ -226,7 +226,7 @@ export default {
   width: 100vw;
   height: 100vh;
   pointer-events: none;
-  overflow: hidden;
+  /* Rimosso overflow: hidden per evitare il taglio delle particelle */
 }
 
 .particle {

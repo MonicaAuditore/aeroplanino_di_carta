@@ -73,12 +73,16 @@ function submitForm() {
   margin: 0 auto 1.5rem;
   display: block;
   border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
 }
 
 .contact-description {
   font-size: 1.2rem;
   max-width: 73rem;
   margin: 3rem auto 5rem;
+  padding: 0 1rem;
 }
 
 .contact-box {
@@ -103,19 +107,12 @@ function submitForm() {
   gap: 1.7rem;
 }
 
-.contact-box label {
-  font-weight: 600;
-  display: flex;
-  flex-direction: column;
-}
-
 .contact-box input,
 .contact-box textarea {
-  padding: 0.6rem;
+  padding: 1rem;
   font-size: 1rem;
   border: 1px solid #ccc;
   resize: vertical;
-  padding: 1rem;
   color: var(--blue);
 }
 
@@ -130,5 +127,67 @@ function submitForm() {
 form button {
   align-self: center;
   margin-top: 2rem;
+  padding: 0.8rem 2rem;
+  font-size: 1rem;
+  border-radius: 40px;
+  cursor: pointer;
+  background-color: var(--white);
+  color: var(--blue);
+  border: none;
+  transition: background-color 0.3s ease;
+}
+
+/* RESPONSIVE */
+
+/* Tablet */
+@media (max-width: 1024px) {
+  .contact-box {
+    padding: 3rem 2rem;
+  }
+
+  .contact-description {
+    font-size: 1.1rem;
+    margin-bottom: 3rem;
+  }
+
+  .contact-image {
+    width: 120px;
+    height: 120px;
+  }
+}
+
+/* Mobile */
+@media (max-width: 767px) {
+  .contact-section {
+    padding: 2rem 1rem;
+    margin-top: 3rem;
+  }
+
+  .contact-box {
+    padding: 2rem 1.5rem;
+    border-radius: 20px;
+    box-shadow: 0 0 20px 2px rgba(255, 255, 255, 0.3);
+  }
+
+  .contact-box-intro {
+    margin-bottom: 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  .contact-description {
+    font-size: 1rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .contact-image {
+    width: 100px;
+    height: 100px;
+  }
+
+  form button {
+    width: 100%;
+    padding: 1rem;
+    font-size: 1.1rem;
+  }
 }
 </style>

@@ -11,6 +11,7 @@
   width: 100%;
   font-weight: normal;
   box-sizing: border-box;
+  overflow-x: hidden;
 }
 
 .main-content,
@@ -89,5 +90,23 @@ button:hover {
   }
   100% {
     box-shadow: 0 0 40px 9px rgba(255, 255, 255, 1);
+  }
+}
+
+@media (max-width: 768px) {
+  h1 {
+    font-size: 3.5rem;
+  }
+
+  h2 {
+    font-size: 3rem;
+  }
+
+  p {
+    font-size: 16px;
+  }
+
+  .number {
+    font-size: 3rem;
   }
 }

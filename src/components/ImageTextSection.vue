@@ -113,6 +113,7 @@ const sections = [
   gap: 2rem;
   padding: 5rem 0;
   flex-wrap: wrap;
+  color: var(----white-soft);
 }
 
 .section-image-text div,
@@ -136,14 +137,28 @@ const sections = [
   padding-bottom: 1rem;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 1024px) {
   .section-image-text,
   .section-image-text.reverse {
     flex-direction: column;
+    align-items: flex-start;
   }
 
-  .section-image-text img {
+  p {
+    font-size: 16px;
+  }
+
+  .section-image-text img,
+  .section-image-text div {
     width: 100%;
+    max-width: 100%;
+    text-align: left;
+  }
+
+  .section-image-text h2,
+  .section-image-text p,
+  .section-image-text .number {
+    text-align: left;
   }
 }
 </style>

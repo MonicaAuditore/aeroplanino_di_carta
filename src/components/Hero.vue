@@ -34,14 +34,14 @@ function scrollToSection() {
   display: flex;
   align-items: center;
   justify-content: flex-start;
-  padding: 4rem 2rem;
+  padding: 3rem 1.5rem;
   min-height: 100vh;
   box-sizing: border-box;
   background-size: cover;
   background-position: center;
   position: relative;
-  text-align: left;
   color: #dddddd;
+  text-align: left;
 }
 
 .hero::before {
@@ -56,21 +56,56 @@ function scrollToSection() {
   position: relative;
   z-index: 2;
   max-width: 970px;
-  padding: 2rem;
-  text-align: center;
+  width: 100%;
+  padding-left: 5rem;
+  margin-top: -7rem;
 }
 
+/* Default (desktop-like) */
 .hero h1 {
   font-size: 6rem;
   margin-bottom: 1rem;
+  line-height: 1.2;
+  word-break: break-word;
 }
 
 .hero p {
   font-size: 1.3rem;
   margin-bottom: 1.5rem;
+  line-height: 1.6;
+  word-break: break-word;
 }
 
 .hero-content button {
   margin-top: 2rem;
+  padding: 0.8rem 1.6rem;
+  font-size: 1rem;
+  display: inline-block;
+}
+
+/* Tablet & Mobile */
+@media (max-width: 1024px) {
+  .hero {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .hero-content {
+    text-align: center;
+    padding: 1rem;
+  }
+
+  .hero h1 {
+    font-size: 2.4rem;
+  }
+
+  .hero p {
+    font-size: 1rem;
+  }
+
+  .hero-content button {
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 </style>

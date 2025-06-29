@@ -70,7 +70,29 @@ export default {
   },
   computed: {
     planeStyle() {
-      const x = Math.sin(this.scrollY * this.frequency) * this.amplitude;
+      // Calcolo base della curva sinusoidale con offset generale
+      const baseCurve =
+        Math.sin(this.scrollY * this.frequency) * this.amplitude;
+
+      // Determina quale curva stiamo attraversando
+      const totalRadians = this.scrollY * this.frequency;
+      const curveNumber = Math.floor(totalRadians / (Math.PI * 2)) + 1;
+      const curveProgress = (totalRadians % (Math.PI * 2)) / (Math.PI * 2);
+
+      // Offset generale per spostare tutto verso sinistra
+      let generalOffset = -60; // Sposta tutto di 60px a sinistra
+
+      // Aggiungi offset extra per la 4° curva
+      let extraOffset = 0;
+      if (curveNumber === 4) {
+        // Spostamento extra verso sinistra durante la 4° curva
+        extraOffset = -120 * Math.sin(curveProgress * Math.PI); // Extra -120px
+      }
+
+      // Offset progressivo che aumenta man mano che si scende
+      const progressiveOffset = -this.scrollY * 0.02; // Sempre più a sinistra
+
+      const x = baseCurve + generalOffset + extraOffset + progressiveOffset;
 
       const windowHeight = window.innerHeight;
       const documentHeight = document.documentElement.scrollHeight;

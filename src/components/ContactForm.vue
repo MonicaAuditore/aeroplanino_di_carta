@@ -216,7 +216,7 @@ h3 {
   font-size: 1.2rem;
   max-width: 73rem;
   margin: 3rem auto 5rem;
-  padding: 0 1rem;
+  padding: 0rem;
 }
 
 /* Container per il posizionamento relativo */

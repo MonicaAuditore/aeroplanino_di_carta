@@ -85,10 +85,10 @@ import PaperPlane from "./components/PaperPlane.vue";
     background: linear-gradient(
       to bottom,
       #011a31 0%,
-      rgba(1, 26, 49, 0.9) 13%,
-      rgba(1, 26, 49, 0.6) 34%,
-      rgba(1, 26, 49, 0.2) 43%,
-      rgba(1, 26, 49, 0) 71%
+      rgba(1, 26, 49, 0.9) 7%,
+      rgba(1, 26, 49, 0.6) 15%,
+      rgba(1, 26, 49, 0.2) 31%,
+      rgba(1, 26, 49, 0) 80%
     );
   }
 }

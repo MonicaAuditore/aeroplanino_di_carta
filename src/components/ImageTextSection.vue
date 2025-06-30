@@ -47,8 +47,8 @@ const sections = [
     number: "02",
     title: "Excellence",
     paragraphs: [
-      `L'eccellenza è sempre stata la mia bussola, anche quando non sapevo ancora come chiamarla. Al liceo, le mie poesie riempivano quaderni su quaderni. Ma non mi bastava. Volevo vederle diventare un libro vero. Non fotocopie spillate o file digitali - un libro stampato, con la copertina, le pagine che profumavano di inchiostro fresco e immagini realizzate da me. Perché le cose che ami davvero meritano di essere fatte per bene, fino in fondo.`,
-      `E così anche quando la passione per il canto ha iniziato a bruciare dentro di me, ho sentito di nuovo quella stessa voce: se lo fai, fallo bene. Tutti mi consigliavano accademie più semplici, percorsi "meno impegnativi". Ma io sapevo che volevo il meglio che potessi dare a me stessa. Così mi sono presentata al conservatorio. Ore di studio, esercizi, prove, eliminazioni. La barra era alta, altissima. Ma ogni volta che la voce si faceva più pulita, più sicura, più mia, capivo che non avrei mai potuto accontentarmi di meno. Il giorno della mia laurea in canto lirico, con quel diploma tra le mani, ho pensato: ecco cosa significa non scendere a compromessi con i propri sogni.`,
+      `L'eccellenza è sempre stata la mia bussola, anche quando non sapevo ancora come chiamarla. Al liceo, le mie poesie riempivano quaderni su quaderni. Ma non mi bastava. Volevo vederle diventare un libro vero. Non fotocopie spillate o file digitali - un libro stampato, con la copertina, le pagine che profumavano di inchiostro fresco e immagini realizzate da me. Perché le cose che ami davvero meritano di essere fatte per bene, fino in fondo. Quel libro, alla fine, è diventato realtà.`,
+      `E così anche quando la passione per il canto ha iniziato a bruciare dentro di me, ho sentito di nuovo quella stessa voce: se lo fai, fallo bene. Sapevo che volevo il meglio che potessi dare a me stessa. Così mi sono presentata al conservatorio. Ore di studio, esercizi, prove, eliminazioni. La barra era alta, altissima. Ma ogni volta che la voce si faceva più pulita, più sicura, più mia, capivo che non avrei mai potuto accontentarmi di meno. Il giorno della mia laurea in canto lirico, con quel diploma tra le mani, ho pensato: ecco cosa significa non scendere a compromessi con i propri sogni.`,
     ],
     imgSrc: img02,
     imgAlt: "Immagine 2",
@@ -59,9 +59,8 @@ const sections = [
     number: "03",
     title: "Caring",
     paragraphs: [
-      `La mia prima insegnante di canto, mi diede un buon esempio. Quando sono diventata insegnante a mia volta, quelle parole sono diventate il mio mantra. Ogni allievo che entrava nella mia aula portava con sé non solo la voglia di cantare, ma anche le sue giornate, le sue preoccupazioni, i suoi sogni. C'era chi arrivava teso dal lavoro e aveva bisogno di dieci minuti per parlare prima di iniziare. Chi era timido e serviva tempo per sentirsi al sicuro.`,
+      `La mia prima insegnante di canto non si limitava a insegnarmi la tecnica. Mi accoglieva, vedeva la persona prima della voce. Dopo di lei ho incontrato alcuni insegnanti più freddi e distaccati, ma lei mi aveva già fatto capire cosa significasse sentirsi accolti in un'aula di musica - che quello che portavo con me, le mie insicurezze, i miei sogni, le mie giornate difficili, aveva valore quanto le note che cantavo. Quando sono diventata insegnante a mia volta, quelle lezioni sono diventate il mio modello. Ogni allievo che entrava nella mia aula portava con sé non solo la voglia di cantare, ma anche le sue giornate, le sue preoccupazioni, i suoi sogni. C'era chi arrivava teso dal lavoro e aveva bisogno di dieci minuti per parlare prima di iniziare. Chi era timido e serviva tempo per sentirsi al sicuro.`,
       `Per ognuno inventavo un metodo diverso. Non esistevano due persone uguali, quindi non potevano esistere due lezioni uguali. Se qualcuno aveva bisogno di sfogarsi, lo ascoltavo. Se qualcuno aveva paura di sbagliare, lo rassicuravo. Perché prima della tecnica, prima degli esercizi, prima di tutto, c'era la persona.`,
-      `Perché prima della tecnica, prima degli esercizi, prima di tutto, c'era la persona.`,
     ],
     imgSrc: img03,
     imgAlt: "Immagine 3",
@@ -73,7 +72,7 @@ const sections = [
     title: "Growth",
     paragraphs: [
       `Sei mesi dopo la fine di Boolean. Non era solo il codice che avevo imparato. Era il coraggio di dire: "Ora voglio di più." Piacenza, per quanto amata, era diventata piccola per i miei sogni. Volevo progetti che accendessero la mia creatività, un'azienda in movimento, aria nuova da respirare. Quando arrivò l'offerta da Roma, il cuore iniziò a battere forte. Era esattamente quello che avevo visualizzato. Non la scelta più comoda, non quella più vicina. Ma quella giusta per crescere.`,
-      `Parallelamente, la stessa fame di crescita mi spingeva anche nel canto. Londra per perfezionare la tecnica, insegnanti diversi in tutta Italia, ognuno con il suo pezzo di verità da offrire. C'è una frase che mi ha sempre affascinata: "La verità è un grande specchio che cadendo si ruppe in molti pezzi. Ognuno ne prese uno e credette di avere l'unica verità." Il nostro compito è cercare quei frammenti, raccoglierli da ogni persona che incontriamo, da ogni esperienza che viviamo. Solo così lo specchio torna intero. Solo così cresciamo davvero.`,
+      `Parallelamente, la stessa fame di crescita mi spingeva anche nel canto. Londra per perfezionare la tecnica, poi insegnanti diversi in tutta Italia, ognuno con il suo pezzo di verità da offrire. C'è una frase che mi ha sempre affascinata: "La verità è un grande specchio che cadendo si ruppe in molti pezzi. Ognuno ne prese uno e credette di avere l'unica verità." Il nostro compito è cercare quei frammenti, raccoglierli da ogni persona che incontriamo, da ogni esperienza che viviamo. Solo così lo specchio torna intero. Solo così cresciamo davvero.`,
     ],
     imgSrc: img04,
     imgAlt: "Immagine 4",
@@ -155,9 +154,9 @@ h3 {
 }
 
 #sezione6 img {
-  max-width: 37%;
-  padding-left: 11rem;
-  padding-top: 16rem;
+  max-width: 30%;
+  align-self: center;
+  margin: 0 auto;
 }
 
 .section-image-text div,
@@ -185,6 +184,10 @@ h3 {
 }
 
 @media (max-width: 1024px) {
+  #sezione1 {
+    padding-top: 4rem;
+  }
+
   #sezione1 img {
     max-width: 83%;
     padding-top: 3rem;
@@ -210,6 +213,7 @@ h3 {
 
   #sezione6 img {
     width: 39%;
+    padding: 3rem 0 1rem;
   }
 
   .section-image-text,

@@ -1,4 +1,4 @@
-import "./assets/main.css";
+import "./styles/main.css";
 import "@fortawesome/fontawesome-free/css/all.min.css";
 
 // Font Awesome core

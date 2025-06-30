@@ -1,29 +1,73 @@
-# aeroplanino_di_carta
+# ✈️ Aeroplanino di Carta
 
-This template should help get you started developing with Vue 3 in Vite.
+Il mio viaggio di crescita personale raccontato attraverso esperienze, riflessioni e momenti che mi hanno formato.
 
-## Recommended IDE Setup
+## 🚀 Demo
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur).
+[Link alla demo live](https://tuosito.github.io/aeroplanino_di_carta)
 
-## Customize configuration
+## 🛠️ Tecnologie Utilizzate
 
-See [Vite Configuration Reference](https://vite.dev/config/).
+- **Vue.js 3** - Framework frontend
+- **Vite** - Build tool e dev server
+- **CSS3** - Styling e animazioni
 
-## Project Setup
+## 📋 Prerequisiti
 
-```sh
-npm install
-```
+- Node.js (versione 16 o superiore)
+- npm o yarn
 
-### Compile and Hot-Reload for Development
+## ⚡ Installazione e Avvio
 
-```sh
-npm run dev
-```
+1. **Clona il repository**
 
-### Compile and Minify for Production
+   ```bash
+   git clone https://github.com/MonicaAuditore/aeroplanino_di_carta.git
+   cd aeroplanino_di_carta
+   ```
 
-```sh
+2. **Installa le dipendenze**
+
+   ```bash
+   npm install
+   ```
+
+3. **Avvia il server di sviluppo**
+
+   ```bash
+   npm run dev
+   ```
+
+4. **Apri il browser**
+   Vai su `http://localhost:5173`
+
+## 🏗️ Build per Produzione
+
+```bash
 npm run build
 ```
+
+## 📁 Struttura del Progetto
+
+```
+aeroplanino_di_carta/
+src/
+├── components/     # Componenti Vue
+├── assets/         # Immagini, icone, musica, font
+└── styles/         # File CSS globali
+
+```
+
+## 👨‍💻 Autore
+
+**Monica Auditore**
+
+- GitHub: [@MonicaAuditore](https://github.com/MonicaAuditore)
+- LinkedIn: https://www.linkedin.com/in/monica-auditore/
+- Email: mauditore@live.it
+
+## 🙏 Ringraziamenti
+
+A tutte le persone che hanno fatto parte del mio viaggio e che continuano a insegnarmi qualcosa di nuovo ogni giorno.
+
+⭐ Se questo progetto ti è piaciuto, lascia una stella su GitHub!

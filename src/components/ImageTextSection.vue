@@ -47,7 +47,7 @@ const sections = [
     number: "02",
     title: "Excellence",
     paragraphs: [
-      `L'eccellenza è sempre stata la mia bussola, anche quando non sapevo ancora come chiamarla. Al liceo, le mie poesie riempivano quaderni su quaderni. Ma non mi bastava. Volevo vederle diventare un libro vero. Non fotocopie spillate o file digitali - un libro stampato, con la copertina, le pagine che profumavano di inchiostro fresco e immagini realizzate da me. Perché le cose che ami davvero meritano di essere fatte per bene, fino in fondo. Quel libro, alla fine, è diventato realtà.`,
+      `Al liceo, le mie poesie riempivano quaderni su quaderni. Ma non mi bastava. Volevo vederle diventare un libro vero. Non fotocopie spillate o file digitali - un libro stampato, con la copertina, le pagine che profumavano di inchiostro fresco e immagini realizzate da me. Perché le cose che ami davvero meritano di essere fatte per bene, fino in fondo. Quel libro, alla fine, è diventato realtà.`,
       `E così anche quando la passione per il canto ha iniziato a bruciare dentro di me, ho sentito di nuovo quella stessa voce: se lo fai, fallo bene. Sapevo che volevo il meglio che potessi dare a me stessa. Così mi sono presentata al conservatorio. Ore di studio, esercizi, prove, eliminazioni. La barra era alta, altissima. Ma ogni volta che la voce si faceva più pulita, più sicura, più mia, capivo che non avrei mai potuto accontentarmi di meno. Il giorno della mia laurea in canto lirico, con quel diploma tra le mani, ho pensato: ecco cosa significa non scendere a compromessi con i propri sogni.`,
     ],
     imgSrc: img02,

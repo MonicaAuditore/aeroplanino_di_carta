@@ -80,10 +80,10 @@
 
 <script setup>
 import { ref } from "vue";
-import frammento from "@/assets/frammento.png";
-import frammento02 from "@/assets/frammento02.png";
-import evelyn from "@/assets/evelyn.png";
-import evelynPlane from "@/assets/evelyn_plane.png";
+import frammento from "@/assets/img/frammento.png";
+import frammento02 from "@/assets/img/frammento02.png";
+import evelyn from "@/assets/img/evelyn.png";
+import evelynPlane from "@/assets/img/evelyn_plane.png";
 
 const name = ref("");
 const email = ref("");

@@ -25,7 +25,7 @@
 </template>
 
 <script setup>
-import heroImage from "@/assets/hero-bg.png";
+import heroImage from "@/assets/img/hero-bg.png";
 
 function scrollToSection() {
   const element = document.getElementById("sezione1");

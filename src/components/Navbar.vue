@@ -51,7 +51,7 @@
 </template>
 
 <script setup>
-import logo from "@/assets/logo.png";
+import logo from "@/assets/img/logo.png";
 </script>
 
 <style>

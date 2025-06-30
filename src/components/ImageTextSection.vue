@@ -20,12 +20,12 @@
 </template>
 
 <script setup>
-import img01 from "@/assets/img_01.png";
-import img02 from "@/assets/img_02.png";
-import img03 from "@/assets/img_03.png";
-import img04 from "@/assets/img_04.png";
-import img05 from "@/assets/img_05.png";
-import img06 from "@/assets/img_06.png";
+import img01 from "@/assets/img/img_01.png";
+import img02 from "@/assets/img/img_02.png";
+import img03 from "@/assets/img/img_03.png";
+import img04 from "@/assets/img/img_04.png";
+import img05 from "@/assets/img/img_05.png";
+import img06 from "@/assets/img/img_06.png";
 
 const sections = [
   {

@@ -5,7 +5,7 @@ import ImageTextSection from "./components/ImageTextSection.vue";
 import ContactForm from "./components/ContactForm.vue";
 import Footer from "./components/Footer.vue";
 import BottoniPlayerTornaSu from "./components/BottoniPlayerTornaSu.vue";
-import mainBg from "@/assets/main-bg.png";
+import mainBg from "@/assets/img/main-bg.png";
 import PaperPlane from "./components/PaperPlane.vue";
 </script>
 

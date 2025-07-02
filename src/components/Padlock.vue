@@ -59,7 +59,7 @@
               correct: isUnlocked,
               incorrect: showIncorrect,
             }"
-            placeholder="Scrivi qui la parola magica..."
+            placeholder="Scrivi qui..."
             maxlength="15"
           />
         </div>

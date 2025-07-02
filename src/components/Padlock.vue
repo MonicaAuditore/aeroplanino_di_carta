@@ -963,7 +963,7 @@ export default {
   }
 
   .section-image-text p {
-    font-size: 11px;
+    font-size: 16px;
   }
 
   .status-message {

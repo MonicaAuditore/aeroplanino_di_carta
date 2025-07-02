@@ -16,6 +16,7 @@
       </div>
       <img :src="section.imgSrc" :alt="section.imgAlt" />
     </section>
+    <Padlock></Padlock>
   </div>
 </template>
 
@@ -26,6 +27,7 @@ import img03 from "@/assets/img/img_03.png";
 import img04 from "@/assets/img/img_04.png";
 import img05 from "@/assets/img/img_05.png";
 import img06 from "@/assets/img/img_06.png";
+import Padlock from "./Padlock.vue";
 
 const sections = [
   {
@@ -89,19 +91,6 @@ const sections = [
     imgSrc: img05,
     imgAlt: "Immagine 5",
     reverse: false,
-  },
-  {
-    id: "sezione6",
-    number: "06",
-    title: "Proactivity",
-    paragraphs: [
-      `Quando facevo la fotografa, non mi limitavo mai a "scattare belle foto". Ogni cliente portava con sé una storia, un sogno, un messaggio che voleva far arrivare al mondo. E io sentivo che il mio lavoro era diventare il ponte tra la sua visione e la realtà. Ricordo una cliente in particolare: scriveva canzoni e voleva delle foto che raccontassero i suoi testi. Non bastava uno studio neutro o una location qualsiasi. Dovevo entrare nella sua musica, nelle sue parole, nella sua anima.`,
-      `Passai ore ad ascoltare le sue canzoni, a capire le emozioni che voleva trasmettere. Poi trovai il luogo perfetto - un posto che parlava la stessa lingua poetica dei suoi testi. Creai un'atmosfera dove lei potesse davvero essere se stessa, dove ogni scatto catturasse non solo la sua immagine, ma la sua essenza.`,
-      `Quando vide le foto, i suoi occhi si illuminarono. "Hai capito esattamente quello che sentivo," mi disse. E quella fu la mia gioia più grande. Perché essere proattivi non significa solo anticipare i bisogni del cliente ma anche immergersi nel suo mondo.`,
-    ],
-    imgSrc: img06,
-    imgAlt: "Immagine 6",
-    reverse: true,
   },
 ];
 </script>

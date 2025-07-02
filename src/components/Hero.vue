@@ -21,11 +21,27 @@
         <button class="my-btn" @click="scrollToSection">Vola con me</button>
       </div>
     </div>
+    <!-- Aereoplanino con effetto galleggiamento -->
+    <img
+      :src="evelynPlane"
+      alt="Decorazione destra"
+      class="decorative-image decorative-right plane"
+    />
+    <!-- Container per le lucine magiche dietro l'aereoplanino -->
+    <div class="magic-lights-container">
+      <div class="magic-light"></div>
+      <div class="magic-light"></div>
+      <div class="magic-light"></div>
+      <div class="magic-light"></div>
+      <div class="magic-light"></div>
+      <div class="magic-light"></div>
+    </div>
   </section>
 </template>
 
 <script setup>
 import heroImage from "@/assets/img/hero-bg.png";
+import evelynPlane from "@/assets/img/evelyn_plane_left.png";
 
 function scrollToSection() {
   const element = document.getElementById("sezione1");
@@ -49,6 +65,88 @@ function scrollToSection() {
   color: #dbdbdb;
   text-align: left;
   z-index: 3;
+  position: relative;
+}
+
+.decorative-image.decorative-right.plane {
+  position: absolute;
+  top: 52%;
+  right: 548px;
+  width: 6rem;
+  transform: translateY(-50%);
+  z-index: 11;
+  animation: float-plane 4s ease-in-out infinite;
+  transition: animation-duration 0.3s ease;
+}
+
+/* Container per le lucine magiche */
+.magic-lights-container {
+  position: absolute;
+  top: 50%;
+  right: 576px;
+  width: 5rem;
+  height: 5rem;
+  transform: translateY(-50%);
+  z-index: 9;
+  pointer-events: none;
+}
+
+/* Singole lucine */
+.magic-light {
+  position: absolute;
+  width: 4px;
+  height: 4px;
+  background: radial-gradient(circle, #ffffff 0%, #87ceeb 50%, transparent 70%);
+  border-radius: 50%;
+  box-shadow: 0 0 6px #ffffff, 0 0 12px #87ceeb,
+    0 0 18px rgba(135, 206, 235, 0.3);
+}
+
+.magic-light:nth-child(1) {
+  top: 10%;
+  left: 20%;
+  animation: sparkle 2s infinite;
+}
+
+.magic-light:nth-child(2) {
+  top: 30%;
+  right: 15%;
+  animation: sparkle-delayed 2.5s infinite 0.5s;
+}
+
+.magic-light:nth-child(3) {
+  bottom: 25%;
+  left: 30%;
+  animation: sparkle-slow 3s infinite 1s;
+}
+
+.magic-light:nth-child(4) {
+  top: 60%;
+  right: 30%;
+  animation: sparkle 2.2s infinite 1.5s;
+}
+
+.magic-light:nth-child(5) {
+  bottom: 15%;
+  right: 20%;
+  animation: sparkle-delayed 2.8s infinite 0.8s;
+}
+
+.magic-light:nth-child(6) {
+  top: 45%;
+  left: 10%;
+  animation: sparkle-slow 2.3s infinite 2s;
+}
+
+/* Effetto hover per maggiore interattività */
+.decorative-image.decorative-right.plane:hover {
+  animation-duration: 2s;
+}
+
+.decorative-image.decorative-right.plane:hover
+  ~ .magic-lights-container
+  .magic-light {
+  animation-duration: 1s;
 }
 
 /* Glass area con effetto soffuso migliorato */
@@ -154,8 +252,44 @@ function scrollToSection() {
   display: inline-block;
 }
 
+@media (max-width: 1556px) {
+  .decorative-image.decorative-right.plane {
+    position: absolute;
+    top: 48%;
+    right: 458px;
+  }
+
+  .magic-lights-container {
+    position: absolute;
+    top: 47%;
+    right: 478px;
+  }
+}
+
+@media (max-width: 1144px) {
+  .decorative-image.decorative-right.plane {
+    position: absolute;
+    top: 48%;
+    right: 401px;
+  }
+
+  .magic-lights-container {
+    position: absolute;
+    top: 47%;
+    right: 478px;
+  }
+}
+
 /* Tablet & Mobile */
 @media (max-width: 1024px) {
+  .decorative-image.decorative-right.plane {
+    display: none;
+  }
+
+  .magic-lights-container {
+    display: none;
+  }
+
   .hero {
     flex-direction: column;
     background-position: center center; /* Centra l'immagine su mobile */

@@ -191,7 +191,7 @@ import Padlock from "./Padlock.vue";
 .magic-letter {
   color: var(----white-soft);
   font-weight: 600;
-  font-size: 2.1em;
+  font-size: 1.5em;
   display: inline-block;
   text-shadow: 0 0 5px rgba(230, 243, 255, 0.8),
     0 0 10px rgba(135, 206, 250, 0.6), 0 0 15px rgba(100, 149, 237, 0.4);

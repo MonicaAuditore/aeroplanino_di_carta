@@ -74,31 +74,37 @@
           </button>
         </div>
 
-        <!-- Status Message with improved transitions -->
-        <transition name="message-fade" mode="out-in">
-          <div
-            class="status-message"
-            :class="statusClass"
-            v-if="statusMessage"
-            :key="statusMessage"
-          >
-            {{ statusMessage }}
-          </div>
-        </transition>
+        <!-- Contenitore per messaggi di stato con altezza fissa -->
+        <div class="message-container">
+          <transition name="message-fade" mode="out-in">
+            <div
+              class="status-message"
+              :class="statusClass"
+              v-if="statusMessage"
+              :key="statusMessage"
+            >
+              {{ statusMessage }}
+            </div>
+          </transition>
+        </div>
 
-        <!-- Hint Box with improved transitions -->
-        <transition name="hint-fade">
-          <div class="hint-box" v-if="hintVisible">
-            <strong> <i class="fa-regular fa-lightbulb"></i> Indizio: </strong>
-            <span v-if="hintsUsed === 1">
-              È ciò che accade quando il bruco diventa farfalla...
-            </span>
-            <span v-else-if="hintsUsed === 2">
-              14 lettere che raccontano il passaggio da una forma all'altra...
-            </span>
-            <span v-else>La parola è: TRASFORMAZIONE</span>
-          </div>
-        </transition>
+        <!-- Contenitore per suggerimenti con altezza fissa -->
+        <div class="hint-container">
+          <transition name="hint-fade">
+            <div class="hint-box" v-if="hintVisible">
+              <strong>
+                <i class="fa-regular fa-lightbulb"></i> Indizio:
+              </strong>
+              <span v-if="hintsUsed === 1">
+                È ciò che accade quando il bruco diventa farfalla...
+              </span>
+              <span v-else-if="hintsUsed === 2">
+                14 lettere che raccontano il passaggio da una forma all'altra...
+              </span>
+              <span v-else>La parola è: TRASFORMAZIONE</span>
+            </div>
+          </transition>
+        </div>
 
         <transition name="reveal">
           <div class="secret-content" v-if="isUnlocked">

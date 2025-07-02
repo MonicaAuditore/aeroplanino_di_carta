@@ -8,11 +8,11 @@
     <h3>Da Quel Martedì a Oggi...</h3>
     <p class="contact-description">
       E ora eccomi qui. Quell'aereoplanino di carta che non sapevo creare quel
-      martedì di tanto tempo fa? Ora vola leggero attraverso questo sito,
+      martedì di tanto tempo fa? <br />Ora vola leggero attraverso questo sito,
       portando con sé ogni storia, ogni valore, ogni pezzo di me che ho raccolto
-      lungo il viaggio. Il bello dei voli è che non finiscono mai davvero. Si
-      trasformano, cambiano rotta, scoprono nuovi cieli. E io sono pronta per il
-      prossimo decollo.
+      lungo il viaggio. <br />Il bello dei voli è che non finiscono mai davvero.
+      Si trasformano, cambiano rotta, scoprono nuovi cieli. <br />E io sono
+      pronta per il prossimo decollo.
     </p>
 
     <div class="contact-container">

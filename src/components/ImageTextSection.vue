@@ -85,14 +85,14 @@
           freddi e distaccati, ma lei mi aveva già fatto capire cosa
           significasse sentirsi accolti in un'aula di musica - che quello che
           portavo con me, le mie insicurezze, i miei sogni, le mie giornate
-          difficili, aveva valore quanto le note che cantavo. Quando sono
+          difficili, avevano valore quanto le note che cantavo. Quando sono
           diventata insegnante a mia volta, quelle lezioni sono diventate il mio
           modello. Ogni allievo che entrava nella mia aula portava con sé non
           solo la voglia di cantare, ma anche le sue giornate, le sue
           preoccupazioni, i suoi sogni. C'er<span class="magic-letter">a</span>
           chi arrivava teso dal lavoro e aveva bisogno di dieci minuti per
-          parlare prima di iniziare. Chi era timido e serviva tempo per sentirsi
-          al sicuro.
+          parlare prima di iniziare. Chi era timido e gli occorreva tempo per
+          sentirsi al sicuro.
         </p>
         <p>
           Per ognuno inventavo un metodo diverso. Non esistevano due persone

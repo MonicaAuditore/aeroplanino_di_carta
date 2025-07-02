@@ -4,25 +4,27 @@
       <h3>Risolvi l'enigma per evocare il Sesto Vento</h3>
       <div class="story-text">
         <p>
-          Si racconta di un antico lucchetto forgiato con la luce delle stelle.
-          Per ottenere la chiave magica che aprirà questo lucchetto sacro, devi
-          prima trovare la parola segreta.
+          Si racconta di un antico lucchetto forgiato con la luce delle
+          stelle.<br />
+          Per ottenere la chiave magica che aprirà questo lucchetto, devi prima
+          trovare la parola segreta.
         </p>
         <p>
-          Questa parola magica danza tra ciò che eravamo e ciò che diventeremo.
+          Questa parola magica danza tra ciò che eravamo e ciò che
+          diventeremo.<br />
           È il respiro del bruco prima di diventare farfalla, è l'eco del
-          coraggio che ci porta oltre i nostri limiti. Solo chi ha seguito
-          attentamente il volo dell'aeroplanino attraverso ogni trasformazione
-          può pronunciarla.
+          coraggio che ci porta oltre i nostri limiti. <br />Solo chi ha seguito
+          attentamente il volo dell'aeroplanino attraverso ogni viaggio può
+          pronunciarla.
         </p>
         <p>
           Ma attenzione: la parola non si trova qui. Gli indizi sono nascosti
           nei racconti dei cinque venti precedenti che hai già attraversato.
-          Torna a leggere con cura i testi del Primo, Secondo, Terzo, Quarto e
-          Quinto Vento. In ognuno di essi si cela un frammento del mistero. Solo
-          unendo tutti gli indizi potrai svelare il segreto. Quando avrai
-          raccolto tutti i segni, la parola ti apparirà chiara come il sole
-          all'alba. Tu la conosci?
+          <br />Torna a leggere con cura i testi del Primo, Secondo, Terzo,
+          Quarto e Quinto Vento. In ognuno di essi si cela un frammento del
+          mistero. <br />Solo unendo tutti gli indizi potrai svelare il segreto.
+          <br />Quando avrai raccolto tutti i segni, la parola ti apparirà
+          chiara come il sole all'alba. <br />Tu la conosci?
         </p>
       </div>
 
@@ -178,8 +180,7 @@
               esattamente quello che sentivo," mi disse. E quella fu la mia
               gioia più grande. Perché essere proattivi non significa solo
               anticipare i bisogni del cliente ma anche immergersi nel suo
-              mondo, trasformando ogni progetto in una vera metamorfosi
-              creativa.
+              mondo.
             </p>
           </div>
           <img :src="img06" alt="Immagine 6" />

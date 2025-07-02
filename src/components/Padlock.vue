@@ -448,6 +448,7 @@ export default {
   color: #4a5568;
   line-height: 1.7;
   font-size: 1.1em;
+  padding-top: 1.5rem;
 }
 
 .story-text p {
@@ -767,7 +768,7 @@ export default {
 
 .hidden-section.glass-effect {
   filter: blur(15px);
-  opacity: 0.2;
+  opacity: 0.7;
   pointer-events: none;
   user-select: none;
   transform: scale(0.95);

@@ -2,10 +2,6 @@
 
 Il mio viaggio di crescita personale raccontato attraverso esperienze, riflessioni e momenti che mi hanno formato.
 
-## 🚀 Demo
-
-[Link alla demo live](https://tuosito.github.io/aeroplanino_di_carta)
-
 ## 🛠️ Tecnologie Utilizzate
 
 - **Vue.js 3** - Framework frontend

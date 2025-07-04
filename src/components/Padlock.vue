@@ -42,8 +42,7 @@
             class="lock-image"
             :class="{
               shake: isShaking,
-              success: isUnlocked,
-              unlocked: isUnlocked,
+              'magic-glow': isUnlocked,
             }"
           />
         </div>
@@ -76,7 +75,7 @@
           </button>
         </div>
 
-        <!-- Contenitore per messaggi di stato con altezza fissa -->
+        <!-- Contenitore per messaggi di stato -->
         <div class="message-container">
           <transition name="message-fade" mode="out-in">
             <div
@@ -90,7 +89,7 @@
           </transition>
         </div>
 
-        <!-- Contenitore per suggerimenti con altezza fissa -->
+        <!-- Contenitore per suggerimenti -->
         <div class="hint-container">
           <transition name="hint-fade">
             <div class="hint-box" v-if="hintVisible">
@@ -132,19 +131,19 @@
       </div>
     </div>
 
-    <!-- Particles Effect -->
-    <div class="particles" v-if="showParticles">
-      <div
-        v-for="i in 30"
-        :key="i"
-        class="particle"
-        :style="getParticleStyle()"
-      >
-        {{ getRandomEmoji() }}
+    <!-- SOLO Stelle scintillanti quando sbloccato -->
+    <div class="magic-effects" v-if="showMagicEffect">
+      <div class="sparkles">
+        <div
+          v-for="i in 12"
+          :key="i"
+          class="sparkle"
+          :style="getSparkleStyle(i)"
+        ></div>
       </div>
     </div>
 
-    <!-- Sezione nascosta con effetto glass - Corretto -->
+    <!-- Sezione nascosta con effetto glass -->
     <transition name="section-reveal" appear>
       <div
         class="hidden-section"
@@ -201,6 +200,7 @@ export default {
 
   data() {
     return {
+      showMagicEffect: false,
       userInput: "",
       isUnlocked: false,
       isShaking: false,
@@ -210,7 +210,6 @@ export default {
       hintVisible: false,
       hintsUsed: 0,
       attempts: 0,
-      showParticles: false,
       correctWord: "trasformazione",
       lockedImage,
       unlockedImage,
@@ -223,7 +222,6 @@ export default {
   },
 
   beforeUnmount() {
-    // Pulisci i timeout quando il componente viene distrutto
     if (this.messageTimeout) {
       clearTimeout(this.messageTimeout);
     }
@@ -252,7 +250,9 @@ export default {
         "Il lucchetto si è aperto! Il Sesto Vento è stato liberato.",
         "success"
       );
-      this.createParticles();
+
+      // Attiva SOLO gli effetti richiesti
+      this.triggerMagicEffect();
       this.$emit("unlocked", true);
     },
 
@@ -283,14 +283,13 @@ export default {
       this.hintsUsed++;
       this.hintVisible = true;
 
-      // Nasconde il suggerimento precedente dopo un tempo più lungo
       if (this.hintTimeout) {
         clearTimeout(this.hintTimeout);
       }
 
       this.hintTimeout = setTimeout(() => {
         this.hintVisible = false;
-      }, 8000); // 8 secondi per i suggerimenti
+      }, 8000);
 
       if (this.hintsUsed === 1) {
         this.showStatus(
@@ -311,7 +310,6 @@ export default {
     },
 
     showStatus(message, type) {
-      // Pulisci timeout precedente
       if (this.messageTimeout) {
         clearTimeout(this.messageTimeout);
       }
@@ -319,8 +317,7 @@ export default {
       this.statusMessage = message;
       this.statusClass = type;
 
-      // Durata più lunga per i messaggi
-      const duration = type === "success" ? 6000 : 5000; // 6 secondi per successo, 5 per altri
+      const duration = type === "success" ? 6000 : 5000;
 
       this.messageTimeout = setTimeout(() => {
         this.statusMessage = "";
@@ -328,30 +325,81 @@ export default {
       }, duration);
     },
 
-    createParticles() {
-      this.showParticles = true;
+    triggerMagicEffect() {
+      // Attiva stelle scintillanti
+      this.showMagicEffect = true;
+
+      // Suono magico
+      this.playMagicSound();
+
+      // Vibrazione del dispositivo (se supportata)
+      if (navigator.vibrate) {
+        navigator.vibrate([100, 50, 100, 50, 200]);
+      }
+
+      // Rimuovi effetti dopo 3 secondi
       setTimeout(() => {
-        this.showParticles = false;
-      }, 4000); // Particelle visibili più a lungo
+        this.showMagicEffect = false;
+      }, 3000);
     },
 
-    getParticleStyle() {
-      return {
-        left: Math.random() * 100 + "%",
-        animationDelay: Math.random() * 2 + "s",
-        animationDuration: Math.random() * 2 + 3 + "s", // Durata più lunga
-      };
-    },
+    playMagicSound() {
+      if (
+        typeof AudioContext !== "undefined" ||
+        typeof webkitAudioContext !== "undefined"
+      ) {
+        const audioContext = new (window.AudioContext ||
+          window.webkitAudioContext)();
 
-    getRandomEmoji() {
-      const emojis = ["", "", "", "", "", "", "", "", "", "", "", ""];
-      return emojis[Math.floor(Math.random() * emojis.length)];
+        // Sequenza di note magiche
+        const frequencies = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+
+        frequencies.forEach((freq, index) => {
+          setTimeout(() => {
+            const oscillator = audioContext.createOscillator();
+            const gainNode = audioContext.createGain();
+
+            oscillator.connect(gainNode);
+            gainNode.connect(audioContext.destination);
+
+            oscillator.frequency.setValueAtTime(freq, audioContext.currentTime);
+            oscillator.type = "sine";
+
+            gainNode.gain.setValueAtTime(0, audioContext.currentTime);
+            gainNode.gain.linearRampToValueAtTime(
+              0.3,
+              audioContext.currentTime + 0.1
+            );
+            gainNode.gain.exponentialRampToValueAtTime(
+              0.01,
+              audioContext.currentTime + 0.5
+            );
+
+            oscillator.start(audioContext.currentTime);
+            oscillator.stop(audioContext.currentTime + 0.5);
+          }, index * 200);
+        });
+      }
     },
 
     focusInput() {
       if (!this.isUnlocked && this.$refs.wordInput) {
         this.$refs.wordInput.focus();
       }
+    },
+
+    getSparkleStyle(index) {
+      const angle = (index * 360) / 12;
+      const radius = 180 + Math.random() * 80;
+      const x = Math.cos((angle * Math.PI) / 180) * radius;
+      const y = Math.sin((angle * Math.PI) / 180) * radius;
+
+      return {
+        left: `calc(50% + ${x}px)`,
+        top: `calc(50% + ${y}px)`,
+        animationDelay: `${index * 0.15}s`,
+        animationDuration: `${2 + Math.random() * 0.5}s`,
+      };
     },
   },
 };
@@ -483,13 +531,11 @@ export default {
   animation: shake 0.5s ease-in-out;
 }
 
-.lock-image.success {
-  animation: success 0.8s ease-in-out;
-  filter: drop-shadow(0 10px 20px rgba(233, 30, 99, 0.4));
-}
-
-.lock-image.unlocked {
-  transform: scale(1.05);
+.lock-image.magic-glow {
+  filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8))
+    drop-shadow(0 0 40px rgba(255, 255, 255, 0.6))
+    drop-shadow(0 0 60px rgba(255, 255, 255, 0.4));
+  animation: magicGlow 1s ease-in-out;
 }
 
 @keyframes shake {
@@ -505,61 +551,19 @@ export default {
   }
 }
 
-@keyframes success {
+@keyframes magicGlow {
   0% {
-    transform: scale(1);
+    filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.3));
   }
   50% {
-    transform: scale(1.1);
+    filter: drop-shadow(0 0 30px rgba(255, 255, 255, 1))
+      drop-shadow(0 0 60px rgba(255, 255, 255, 0.8))
+      drop-shadow(0 0 90px rgba(255, 255, 255, 0.6));
   }
   100% {
-    transform: scale(1.05);
-  }
-}
-
-/* Heart overlay effect */
-.heart-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none;
-}
-
-.floating-heart {
-  position: absolute;
-  font-size: 24px;
-  animation: floatHeart 2s ease-in-out infinite;
-}
-
-.floating-heart:nth-child(1) {
-  top: 20%;
-  left: 20%;
-  animation-delay: 0s;
-}
-
-.floating-heart:nth-child(2) {
-  top: 30%;
-  right: 25%;
-  animation-delay: 0.7s;
-}
-
-.floating-heart:nth-child(3) {
-  bottom: 20%;
-  left: 30%;
-  animation-delay: 1.4s;
-}
-
-@keyframes floatHeart {
-  0%,
-  100% {
-    transform: translateY(0) scale(1);
-    opacity: 0.8;
-  }
-  50% {
-    transform: translateY(-10px) scale(1.2);
-    opacity: 1;
+    filter: drop-shadow(0 0 20px rgba(255, 255, 255, 0.8))
+      drop-shadow(0 0 40px rgba(255, 255, 255, 0.6))
+      drop-shadow(0 0 60px rgba(255, 255, 255, 0.4));
   }
 }
 
@@ -753,7 +757,7 @@ export default {
   transform: translateY(30px);
 }
 
-/* Hidden Section with Glass Effect - Migliorato */
+/* Hidden Section with Glass Effect */
 .hidden-section {
   margin-top: 50px;
   transition: all 1.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
@@ -872,34 +876,80 @@ export default {
   color: var(--white-soft);
 }
 
-.particles {
+/* CSS per gli effetti magici */
+.magic-effects {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   pointer-events: none;
-  z-index: 1000;
+  z-index: 9999;
+  overflow: hidden;
 }
 
-.particle {
+/* Stelle scintillanti eleganti */
+.sparkles {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.sparkle {
   position: absolute;
-  font-size: 24px;
-  animation: float 4s ease-out forwards;
+  width: 6px;
+  height: 6px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 255, 255, 1) 0%,
+    rgba(255, 255, 255, 0.8) 30%,
+    transparent 70%
+  );
+  border-radius: 50%;
+  animation: elegantSparkle 2.5s ease-in-out infinite;
 }
 
-@keyframes float {
-  0% {
-    transform: translateY(100vh) rotate(0deg) scale(0.5);
-    opacity: 1;
+.sparkle::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 1px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  transform: translate(-50%, -50%);
+}
+
+.sparkle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 1px;
+  height: 20px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(255, 255, 255, 0.8),
+    transparent
+  );
+  transform: translate(-50%, -50%);
+}
+
+@keyframes elegantSparkle {
+  0%,
+  100% {
+    transform: scale(0) rotate(0deg);
+    opacity: 0;
   }
   50% {
+    transform: scale(1) rotate(180deg);
     opacity: 1;
-    transform: translateY(50vh) rotate(180deg) scale(1);
-  }
-  100% {
-    transform: translateY(-100px) rotate(360deg) scale(0.8);
-    opacity: 0;
   }
 }
 
@@ -981,10 +1031,6 @@ export default {
 
   .secret-content h3 {
     font-size: 1.8em;
-  }
-
-  .particle {
-    font-size: 18px;
   }
 }
 </style>

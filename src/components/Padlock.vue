@@ -351,34 +351,144 @@ export default {
         const audioContext = new (window.AudioContext ||
           window.webkitAudioContext)();
 
-        // Sequenza di note magiche
-        const frequencies = [523.25, 659.25, 783.99, 1046.5]; // C5, E5, G5, C6
+        // Sequenza di note mistiche e magiche - scala pentatonica con armoniche
+        const magicSequence = [
+          // Prima fase: risveglio mistico
+          { freq: 261.63, duration: 0.4, gain: 0.15, type: "sine" }, // C4
+          { freq: 329.63, duration: 0.4, gain: 0.18, type: "sine" }, // E4
+          { freq: 392.0, duration: 0.5, gain: 0.2, type: "sine" }, // G4
 
-        frequencies.forEach((freq, index) => {
+          // Seconda fase: crescendo magico
+          { freq: 523.25, duration: 0.6, gain: 0.25, type: "triangle" }, // C5
+          { freq: 659.25, duration: 0.6, gain: 0.28, type: "triangle" }, // E5
+          { freq: 783.99, duration: 0.7, gain: 0.3, type: "triangle" }, // G5
+
+          // Terza fase: climax celestiale
+          { freq: 1046.5, duration: 0.8, gain: 0.35, type: "sine" }, // C6
+          { freq: 1318.51, duration: 0.9, gain: 0.32, type: "sine" }, // E6
+          { freq: 1567.98, duration: 1.0, gain: 0.3, type: "sine" }, // G6
+
+          // Quarta fase: eco magico finale
+          { freq: 2093.0, duration: 1.2, gain: 0.25, type: "sine" }, // C7
+          { freq: 1760.0, duration: 1.4, gain: 0.2, type: "sine" }, // A6
+          { freq: 1396.91, duration: 1.6, gain: 0.15, type: "sine" }, // F6
+        ];
+
+        // Suona la sequenza mistica
+        magicSequence.forEach((note, index) => {
           setTimeout(() => {
+            // Oscillatore principale
             const oscillator = audioContext.createOscillator();
             const gainNode = audioContext.createGain();
 
-            oscillator.connect(gainNode);
+            // Aggiunge riverbero mistico
+            const convolver = audioContext.createConvolver();
+            const filter = audioContext.createBiquadFilter();
+
+            // Configura il filtro per un suono più etereo
+            filter.type = "lowpass";
+            filter.frequency.setValueAtTime(
+              note.freq * 2,
+              audioContext.currentTime
+            );
+            filter.Q.setValueAtTime(1, audioContext.currentTime);
+
+            // Connessioni audio
+            oscillator.connect(filter);
+            filter.connect(gainNode);
             gainNode.connect(audioContext.destination);
 
-            oscillator.frequency.setValueAtTime(freq, audioContext.currentTime);
-            oscillator.type = "sine";
+            // Configurazione oscillatore
+            oscillator.frequency.setValueAtTime(
+              note.freq,
+              audioContext.currentTime
+            );
+            oscillator.type = note.type;
 
+            // Envelope magico - attacco dolce, decay misterioso
             gainNode.gain.setValueAtTime(0, audioContext.currentTime);
             gainNode.gain.linearRampToValueAtTime(
-              0.3,
-              audioContext.currentTime + 0.1
+              note.gain,
+              audioContext.currentTime + note.duration * 0.3
             );
             gainNode.gain.exponentialRampToValueAtTime(
               0.01,
-              audioContext.currentTime + 0.5
+              audioContext.currentTime + note.duration
             );
 
+            // Aggiungi vibrato mistico per le note più acute
+            if (note.freq > 1000) {
+              const vibrato = audioContext.createOscillator();
+              const vibratoGain = audioContext.createGain();
+
+              vibrato.frequency.setValueAtTime(4, audioContext.currentTime);
+              vibrato.type = "sine";
+              vibratoGain.gain.setValueAtTime(15, audioContext.currentTime);
+
+              vibrato.connect(vibratoGain);
+              vibratoGain.connect(oscillator.frequency);
+
+              vibrato.start(audioContext.currentTime);
+              vibrato.stop(audioContext.currentTime + note.duration);
+            }
+
             oscillator.start(audioContext.currentTime);
-            oscillator.stop(audioContext.currentTime + 0.5);
-          }, index * 200);
+            oscillator.stop(audioContext.currentTime + note.duration);
+
+            // Armoniche sottili per maggiore profondità
+            if (index < 6) {
+              const harmonic = audioContext.createOscillator();
+              const harmonicGain = audioContext.createGain();
+
+              harmonic.connect(harmonicGain);
+              harmonicGain.connect(audioContext.destination);
+
+              harmonic.frequency.setValueAtTime(
+                note.freq * 1.5,
+                audioContext.currentTime
+              );
+              harmonic.type = "sine";
+
+              harmonicGain.gain.setValueAtTime(0, audioContext.currentTime);
+              harmonicGain.gain.linearRampToValueAtTime(
+                note.gain * 0.3,
+                audioContext.currentTime + note.duration * 0.4
+              );
+              harmonicGain.gain.exponentialRampToValueAtTime(
+                0.01,
+                audioContext.currentTime + note.duration * 0.8
+              );
+
+              harmonic.start(audioContext.currentTime + 0.1);
+              harmonic.stop(audioContext.currentTime + note.duration * 0.8);
+            }
+          }, index * 150); // Timing più fluido tra le note
         });
+
+        // Aggiungi un drone mistico di sottofondo
+        setTimeout(() => {
+          const drone = audioContext.createOscillator();
+          const droneGain = audioContext.createGain();
+
+          drone.connect(droneGain);
+          droneGain.connect(audioContext.destination);
+
+          drone.frequency.setValueAtTime(65.41, audioContext.currentTime); // C2
+          drone.type = "sawtooth";
+
+          droneGain.gain.setValueAtTime(0, audioContext.currentTime);
+          droneGain.gain.linearRampToValueAtTime(
+            0.08,
+            audioContext.currentTime + 0.5
+          );
+          droneGain.gain.exponentialRampToValueAtTime(
+            0.01,
+            audioContext.currentTime + 3
+          );
+
+          drone.start(audioContext.currentTime);
+          drone.stop(audioContext.currentTime + 3);
+        }, 500);
       }
     },
 

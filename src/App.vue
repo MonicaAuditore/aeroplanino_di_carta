@@ -38,7 +38,7 @@ import PaperPlane from "./components/PaperPlane.vue";
 
 .background-blur {
   position: absolute;
-  /* Espandi l'immagine oltre i bordi per compensare il blur */
+  /* Espando l'immagine oltre i bordi per compensare il blur */
   top: -20px;
   left: -20px;
   right: -20px;
@@ -90,6 +90,13 @@ import PaperPlane from "./components/PaperPlane.vue";
       rgba(1, 26, 49, 0.2) 31%,
       rgba(1, 26, 49, 0) 80%
     );
+  }
+
+  /* Su mobile: nasconde l'immagine e usa il colore var(--blue) */
+  .background-blur {
+    background-image: none !important;
+    background-color: var(--blue);
+    filter: none; /* Rimuove anche il blur per migliorare le performance */
   }
 }
 </style>

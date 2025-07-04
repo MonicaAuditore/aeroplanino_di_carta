@@ -192,7 +192,7 @@
 <script>
 import lockedImage from "@/assets/img/padlockClosed.png";
 import unlockedImage from "@/assets/img/padlockOpen.png";
-import keyIcon from "@/assets/img/Key-icon.png";
+import keyIcon from "@/assets/img/key-icon.png";
 import img06 from "@/assets/img/img_06.png";
 
 export default {

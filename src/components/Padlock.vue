@@ -247,7 +247,7 @@ export default {
     unlock() {
       this.isUnlocked = true;
       this.showStatus(
-        "Il lucchetto si è aperto! Il Sesto Vento è stato liberato.",
+        "Hai trovato la chiave! Il lucchetto si è aperto.",
         "success"
       );
 

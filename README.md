@@ -2,6 +2,10 @@
 
 Il mio viaggio di crescita personale raccontato attraverso esperienze, riflessioni e momenti che mi hanno formato.
 
+## 🪄 Link Netlify
+
+https://aeroplaninodicarta.netlify.app/
+
 ## 🛠️ Tecnologie Utilizzate
 
 - **Vue.js 3** - Framework frontend

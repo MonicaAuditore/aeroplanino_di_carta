@@ -195,7 +195,7 @@ import Padlock from "./Padlock.vue";
   display: inline-block;
   text-shadow: 0 0 5px rgba(230, 243, 255, 0.8),
     0 0 10px rgba(135, 206, 250, 0.6), 0 0 15px rgba(100, 149, 237, 0.4);
-  animation: etherealFloat-46af1592 3s ease-in-out infinite;
+  animation: etherealFloat 3s ease-in-out infinite;
   transition: all 0.3s ease;
 }
 

@@ -1,6 +1,6 @@
 <template>
   <footer class="site-footer">
-    <p><i>© 2025 Crafted with 🩵 by Monica Evelyn Auditore for Caffeina.</i></p>
+    <p><i>© 2025 Crafted with 🩵 by Monica Evelyn Auditore.</i></p>
   </footer>
 </template>
 
